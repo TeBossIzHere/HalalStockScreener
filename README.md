@@ -1,8 +1,6 @@
 Halal Stock Screener  
 ====================
 
-**Product Research**
-
 ---
 
 **Who is this for?**
@@ -94,4 +92,5 @@ Source: [Islamicly Screening Criteria](https://islamicly.com/screening-criteria.
 
 This tool is intended for **educational and research purposes only**.  
 It does not constitute financial advice. Please consult a qualified Islamic scholar or financial advisor for personal investment decisions.
+
 Allahu a'alam.
