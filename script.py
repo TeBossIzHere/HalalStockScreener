@@ -15,7 +15,7 @@
 #
 # End:
 #
-# git push origin main (or your feature branch)
+# git push origin main (or your feature branch).
 # ...
 
 # - Accounts Receivable / Market Value of Equity (36-month average) < 49%
