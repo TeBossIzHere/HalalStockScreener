@@ -21,7 +21,7 @@
 # - Accounts Receivable / Market Value of Equity (36-month average) < 49%
 # - Debt / Market Capitalization of Equity (36-month average) < 33%
 # - (Cash + Interest-Bearing Securities) / Market Value of Equity (36-month average) < 33%
-# - Revenue from haram sources < 5% of total revenue
+# - Revenue from haram sources < 5% of total revenue.
 
 def accountReceivableBenchmark(AR, MV):
     ARBenchmarkPercentage = int(str(AR).replace(",", "")) / int(str(MV).replace(",", "")) * 100
