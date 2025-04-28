@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Benchmarks</title>
+    <!-- Correctly link the CSS file using Flask's url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+
 <body>
-$END$
+
+    <h1>Financial Benchmark Calculator</h1>
+    <form method="POST" action="/">
+        <label for="mv">Market Value (MV):</label>
+        <input type="text" id="mv" name="mv" placeholder="Enter MV" required>
+        <label for="tr">Total Revenue (TR):</label>
+        <input type="text" id="tr" name="tr" placeholder="Enter TR" required>
+        <label for="ar">Account Receivable (AR):</label>
+        <input type="text" id="ar" name="ar" placeholder="Enter AR" required>
+        <label for="debt">Debt:</label>
+        <input type="text" id="debt" name="debt" placeholder="Enter Debt" required>
+        <label for="cash">Cash:</label>
+        <input type="text" id="cash" name="cash" placeholder="Enter Cash" required>
+        <label for="ibs">Invested Capital (IBS):</label>
+        <input type="text" id="ibs" name="ibs" placeholder="Enter IBS" required>
+        <label for="hr">Haram Revenue (HR):</label>
+        <input type="text" id="hr" name="hr" placeholder="Enter HR" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if error_message %}
+        <div class="error-message">{{ error_message }}</div>
+    {% endif %}
+
+    {% if results_display %}
+        <h2>Benchmark Results</h2>
+        <div class="result">{{ ar_result }}</div>
+        <div class="result">{{ debt_result }}</div>
+        <div class="result">{{ liquid_result }}</div>
+        <div class="result">{{ haram_result }}</div>
+    {% endif %}
+
 </body>
+
 </html>
