@@ -11,6 +11,30 @@
 
 <body>
 
+    <header>
+      <div class="header-top">
+        <img src="https://darulquranhouston.org/wp-content/uploads/2023/06/LogoDarul-Quran-230614.png" alt="Darul Quran Logo" class="logo" />
+      </div>
+      <nav class="navbar">
+        <ul class="nav-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li class="dropdown">
+            <a href="#" class="active">Services</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Financial Screening</a></li>
+              <li><a href="#">Consultation</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Fundraising</a></li>
+          <li><a href="#">Prayer Timings</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+        <a href="#" class="donation-btn">Donation</a>
+      </nav>
+    </header>
+
+
     {% if show_popup %}
         <div id="popup-overlay" class="popup-overlay" style="display: flex;">
     {% else %}
@@ -33,183 +57,201 @@
         </div>
     </div>
 
-    <h1>Financial Benchmark Calculator</h1>
-    <form method="POST" action="/">
+    <div class="title-container"><h1>Shariah Financial Metrics Calculator</h1></div>
 
-        <div class="label-container">
-            <label for="mv">Market Value (MV):</label>
-            <button class="expand-button" data-target="mv-info">What is Market Value?</button>
-        </div>
-        <input type="text" id="mv" name="mv" placeholder="Enter MV" required>
-        <div id="mv-info" class="expand-section">
-            <h3>📌 What is Market Value?</h3>
-            <p>Market Value (MV) refers to <strong>the total worth of a company’s shares</strong> based on its stock price.</p>
+    <div class="app-container">
 
-            <h4>💡 Why is Market Value important?</h4>
-            <p>It serves as a reference point for financial screening in Islamic finance. Debt, liquid assets, and revenue sources are measured against this value to ensure fairness.</p>
+        <form method="POST" action="/">
 
-            <h4>🧐 Common Questions</h4>
-            <ul>
-                <li><strong>Q:</strong> How do I calculate Market Value?
-                    <br><strong>A:</strong> Multiply the <strong>stock price</strong> by the <strong>number of shares outstanding</strong>.</li>
-                <li><strong>Q:</strong> Why not use total assets instead?
-                    <br><strong>A:</strong> Market Value reflects <strong>real investor perception</strong>, making it more dynamic than static total assets.</li>
-            </ul>
-        </div>
             <div class="label-container">
-            <label for="tr">Total Revenue (TR):</label>
-            <button class="expand-button" data-target="tr-info">What is Total Revenue?</button>
-        </div>
-        <input type="text" id="tr" name="tr" placeholder="Enter TR" required>
-        <div id="tr-info" class="expand-section">
-            <h3>💰 What is Total Revenue?</h3>
-            <p>Total Revenue refers to <strong>the total income a company earns</strong> from all business activities.</p>
+                <label for="mv">Market Value (MV):</label>
+                <button class="expand-button" data-target="mv-info">What is Market Value?</button>
+            </div>
+            <input type="text" id="mv" name="mv" placeholder="Enter MV" required>
+            <div id="mv-info" class="expand-section">
+                <h3>📌 What is Market Value?</h3>
+                <p>Market Value (MV) refers to <strong>the total worth of a company’s shares</strong> based on its stock price.</p>
 
-            <h4>💡 Why does Total Revenue matter?</h4>
-            <p>Shariah screening evaluates whether revenue comes from <strong>permissible sources</strong> and ensures that a company isn’t profiting from haram activities such as gambling, alcohol, or interest-based banking.</p>
+                <h4>💡 Why is Market Value important?</h4>
+                <p>It serves as a reference point for financial screening in Islamic finance. Debt, liquid assets, and revenue sources are measured against this value to ensure fairness.</p>
 
-            <h4>🧐 Common Questions</h4>
-            <ul>
-                <li><strong>Q:</strong> What if only part of a company’s revenue is from haram activities?
-                    <br><strong>A:</strong> If haram income exceeds <strong>5% of total revenue</strong>, the company may be deemed non-compliant.</li>
-                <li><strong>Q:</strong> Does revenue include investment profits?
-                    <br><strong>A:</strong> Yes, but <strong>interest-based investment gains</strong> must be excluded or purified.</li>
-            </ul>
-        </div>
+                <h4>🧐 Common Questions</h4>
+                <ul>
+                    <li><strong>Q:</strong> How do I calculate Market Value?
+                        <br><strong>A:</strong> Multiply the <strong>stock price</strong> by the <strong>number of shares outstanding</strong>.</li>
+                    <li><strong>Q:</strong> Why not use total assets instead?
+                        <br><strong>A:</strong> Market Value reflects <strong>real investor perception</strong>, making it more dynamic than static total assets.</li>
+                </ul>
+            </div>
+                <div class="label-container">
+                <label for="tr">Total Revenue (TR):</label>
+                <button class="expand-button" data-target="tr-info">What is Total Revenue?</button>
+            </div>
+            <input type="text" id="tr" name="tr" placeholder="Enter TR" required>
+            <div id="tr-info" class="expand-section">
+                <h3>💰 What is Total Revenue?</h3>
+                <p>Total Revenue refers to <strong>the total income a company earns</strong> from all business activities.</p>
 
-        <div class="label-container">
-            <label for="ar">Accounts Receivable (AR):</label>
-            <button class="expand-button" data-target="ar-info">What is Accounts Receivable?</button>
-        </div>
-        <input type="text" id="ar" name="ar" placeholder="Enter AR" required>
-        <div id="ar-info" class="expand-section">
-            <h3>💳 What is Accounts Receivable?</h3>
-            <p>Accounts Receivable (AR) refers to <strong>money owed to a company</strong> by customers for purchases made on credit.</p>
+                <h4>💡 Why does Total Revenue matter?</h4>
+                <p>Shariah screening evaluates whether revenue comes from <strong>permissible sources</strong> and ensures that a company isn’t profiting from haram activities such as gambling, alcohol, or interest-based banking.</p>
 
-            <h4>💡 Why does AR matter in Shariah compliance?</h4>
-            <p>Islamic finance discourages <strong>long-term credit dependency</strong> because it can involve <strong>interest-bearing delays</strong>,
-            which contradict Shariah principles.</p>
+                <h4>🧐 Common Questions</h4>
+                <ul>
+                    <li><strong>Q:</strong> What if only part of a company’s revenue is from haram activities?
+                        <br><strong>A:</strong> If haram income exceeds <strong>5% of total revenue</strong>, the company may be deemed non-compliant.</li>
+                    <li><strong>Q:</strong> Does revenue include investment profits?
+                        <br><strong>A:</strong> Yes, but <strong>interest-based investment gains</strong> must be excluded or purified.</li>
+                </ul>
+            </div>
 
-            <h4>🧐 Common Questions</h4>
-            <ul>
-                <li><strong>Q:</strong> Is it haram for companies to have Accounts Receivable?
-                    <br><strong>A:</strong> No, but companies <strong>must ensure prompt settlement</strong> to avoid interest-related risks.</li>
-                <li><strong>Q:</strong> How can companies maintain Shariah compliance with AR?
-                    <br><strong>A:</strong> By minimizing overdue credit payments and avoiding <strong>interest charges</strong>.</li>
-            </ul>
-        </div>
-
-        <div class="label-container">
-            <label for="debt">Debt:</label>
-            <button class="expand-button" data-target="debt-info">What is Debt?</button>
-        </div>
-        <input type="text" id="debt" name="debt" placeholder="Enter Debt" required>
-        <div id="debt-info" class="expand-section">
-            <h3>⚠️ What is Debt?</h3>
-            <p>Debt refers to <strong>borrowed money</strong> that a company must repay, often with interest.</p>
-
-            <h4>💡 Why is Debt a concern in Shariah compliance?</h4>
-            <p>Islam strictly prohibits <strong>riba (interest-bearing loans)</strong>. Companies must keep debt levels <strong>below a specific threshold</strong>
-            to maintain compliance.</p>
-
-            <h4>🧐 Common Questions</h4>
-            <ul>
-                <li><strong>Q:</strong> What types of debt violate Shariah compliance?
-                    <br><strong>A:</strong> Loans with <strong>interest (riba)</strong> are non-compliant. Islamic finance prefers <strong>equity-based funding</strong>.</li>
-                <li><strong>Q:</strong> How do companies avoid non-compliant debt?
-                    <br><strong>A:</strong> By using <strong>Islamic financing methods</strong> such as <strong>Murabaha, Sukuk, and Ijara</strong>.</li>
-            </ul>
-        </div>
             <div class="label-container">
-            <label for="cash">Cash:</label>
-            <button class="expand-button" data-target="cash-info">What is Cash?</button>
+                <label for="ar">Accounts Receivable (AR):</label>
+                <button class="expand-button" data-target="ar-info">What is Accounts Receivable?</button>
+            </div>
+            <input type="text" id="ar" name="ar" placeholder="Enter AR" required>
+            <div id="ar-info" class="expand-section">
+                <h3>💳 What is Accounts Receivable?</h3>
+                <p>Accounts Receivable (AR) refers to <strong>money owed to a company</strong> by customers for purchases made on credit.</p>
+
+                <h4>💡 Why does AR matter in Shariah compliance?</h4>
+                <p>Islamic finance discourages <strong>long-term credit dependency</strong> because it can involve <strong>interest-bearing delays</strong>,
+                which contradict Shariah principles.</p>
+
+                <h4>🧐 Common Questions</h4>
+                <ul>
+                    <li><strong>Q:</strong> Is it haram for companies to have Accounts Receivable?
+                        <br><strong>A:</strong> No, but companies <strong>must ensure prompt settlement</strong> to avoid interest-related risks.</li>
+                    <li><strong>Q:</strong> How can companies maintain Shariah compliance with AR?
+                        <br><strong>A:</strong> By minimizing overdue credit payments and avoiding <strong>interest charges</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="label-container">
+                <label for="debt">Debt:</label>
+                <button class="expand-button" data-target="debt-info">What is Debt?</button>
+            </div>
+            <input type="text" id="debt" name="debt" placeholder="Enter Debt" required>
+            <div id="debt-info" class="expand-section">
+                <h3>⚠️ What is Debt?</h3>
+                <p>Debt refers to <strong>borrowed money</strong> that a company must repay, often with interest.</p>
+
+                <h4>💡 Why is Debt a concern in Shariah compliance?</h4>
+                <p>Islam strictly prohibits <strong>riba (interest-bearing loans)</strong>. Companies must keep debt levels <strong>below a specific threshold</strong>
+                to maintain compliance.</p>
+
+                <h4>🧐 Common Questions</h4>
+                <ul>
+                    <li><strong>Q:</strong> What types of debt violate Shariah compliance?
+                        <br><strong>A:</strong> Loans with <strong>interest (riba)</strong> are non-compliant. Islamic finance prefers <strong>equity-based funding</strong>.</li>
+                    <li><strong>Q:</strong> How do companies avoid non-compliant debt?
+                        <br><strong>A:</strong> By using <strong>Islamic financing methods</strong> such as <strong>Murabaha, Sukuk, and Ijara</strong>.</li>
+                </ul>
+            </div>
+                <div class="label-container">
+                <label for="cash">Cash:</label>
+                <button class="expand-button" data-target="cash-info">What is Cash?</button>
+            </div>
+            <input type="text" id="cash" name="cash" placeholder="Enter Cash" required>
+            <div id="cash-info" class="expand-section">
+                <h3>💵 What is Cash?</h3>
+                <p>Cash includes <strong>money held in bank accounts</strong>, liquid assets, and any <strong>readily accessible funds</strong>.</p>
+
+                <h4>💡 Why does Cash matter in Shariah compliance?</h4>
+                <p>Islamic finance assesses <strong>cash liquidity</strong> because excessive idle cash can indicate reliance on <strong>interest-bearing savings</strong>,
+                which is <strong>non-compliant</strong> under Shariah law.</p>
+
+                <h4>🧐 Common Questions</h4>
+                <ul>
+                    <li><strong>Q:</strong> Can holding large amounts of cash be a problem?
+                        <br><strong>A:</strong> Yes, if the cash is sitting in <strong>interest-based accounts</strong>, the earnings from it would not be compliant.</li>
+                    <li><strong>Q:</strong> How can companies keep their cash Shariah-compliant?
+                        <br><strong>A:</strong> By keeping funds in <strong>Islamic banking accounts</strong> that avoid <strong>riba (interest-based earnings)</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="label-container">
+                <label for="ibs">Interest-Bearing Invested Capital (IBS):</label>
+                <button class="expand-button" data-target="ibs-info">What is Interest-Bearing Capital?</button>
+            </div>
+            <input type="text" id="ibs" name="ibs" placeholder="Enter IBS" required>
+            <div id="ibs-info" class="expand-section">
+                <h3>📈 What is Interest-Bearing Capital?</h3>
+                <p>Interest-Bearing Invested Capital refers to <strong>funds placed in financial instruments that generate interest (riba)</strong>.</p>
+
+                <h4>💡 Why does Interest-Bearing Capital matter in Islamic finance?</h4>
+                <p>Shariah law strictly prohibits <strong>earning money from interest-based investments</strong>.
+                Companies must ensure their financial holdings <strong>avoid non-compliant instruments</strong>.</p>
+
+                <h4>🧐 Common Questions</h4>
+                <ul>
+                    <li><strong>Q:</strong> What financial assets are considered non-compliant?
+                        <br><strong>A:</strong> Bonds, conventional savings accounts, and <strong>fixed-income securities that pay interest.</strong></li>
+                    <li><strong>Q:</strong> How can companies ensure their investments are halal?
+                        <br><strong>A:</strong> By using <strong>Islamic investment vehicles</strong> like <strong>Sukuk (Islamic bonds)</strong> and Shariah-compliant stocks.</li>
+                </ul>
+            </div>
+
+            <div class="label-container">
+                <label for="hr">Haram Revenue (HR):</label>
+                <button class="expand-button" data-target="hr-info">What is Haram Revenue?</button>
+            </div>
+            <input type="text" id="hr" name="hr" placeholder="Enter HR" required>
+            <div id="hr-info" class="expand-section">
+                <h3>⚠️ What is Haram Revenue?</h3>
+                <p>Haram Revenue refers to <strong>money earned from activities Islam prohibits</strong>. Examples include:
+                <ul>
+                    <li><strong>Interest-based banking (Riba)</strong></li>
+                    <li><strong>Alcohol, gambling, and pork-related businesses</strong></li>
+                    <li><strong>Adult entertainment or unethical industries</strong></li>
+                </ul></p>
+
+                <h4>💡 Why is this important?</h4>
+                <p>Islamic finance prohibits profiting from haram sources. If <strong>haram revenue exceeds 5% of total revenue</strong>,
+                companies may need <strong>to purify earnings</strong> or risk non-compliance.</p>
+
+                <h4>🧐 Common Questions</h4>
+                <ul>
+                    <li><strong>Q:</strong> What if a company earns only a small percentage from haram sources?
+                        <br><strong>A:</strong> Scholars permit companies to <strong>purify earnings</strong> if they are under the 5% limit.</li>
+                    <li><strong>Q:</strong> How can companies handle non-compliant revenue?
+                        <br><strong>A:</strong> By <strong>donating impure earnings</strong> to charity and limiting reliance on haram business streams.</li>
+                </ul>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if results_display %}
+        <div class="results-container">
+            <h2>Financial Screening Results</h2>
+            <div class="result-box {% if 'non-compliant' in ar_result %}non-compliant{% else %}compliant{% endif %}">{{ ar_result }}</div>
+            <div class="result-box {% if 'non-compliant' in debt_result %}non-compliant{% else %}compliant{% endif %}">{{ debt_result }}</div>
+            <div class="result-box {% if 'non-compliant' in liquid_result %}non-compliant{% else %}compliant{% endif %}">{{ liquid_result }}</div>
+            <div class="result-box {% if 'non-compliant' in haram_result %}non-compliant{% else %}compliant{% endif %}">{{ haram_result }}</div>
         </div>
-        <input type="text" id="cash" name="cash" placeholder="Enter Cash" required>
-        <div id="cash-info" class="expand-section">
-            <h3>💵 What is Cash?</h3>
-            <p>Cash includes <strong>money held in bank accounts</strong>, liquid assets, and any <strong>readily accessible funds</strong>.</p>
+        {% endif %}
 
-            <h4>💡 Why does Cash matter in Shariah compliance?</h4>
-            <p>Islamic finance assesses <strong>cash liquidity</strong> because excessive idle cash can indicate reliance on <strong>interest-bearing savings</strong>,
-            which is <strong>non-compliant</strong> under Shariah law.</p>
+        {% if error_message %}
+        <div class="error-message">{{ error_message }}</div>
+        {% endif %}
 
-            <h4>🧐 Common Questions</h4>
-            <ul>
-                <li><strong>Q:</strong> Can holding large amounts of cash be a problem?
-                    <br><strong>A:</strong> Yes, if the cash is sitting in <strong>interest-based accounts</strong>, the earnings from it would not be compliant.</li>
-                <li><strong>Q:</strong> How can companies keep their cash Shariah-compliant?
-                    <br><strong>A:</strong> By keeping funds in <strong>Islamic banking accounts</strong> that avoid <strong>riba (interest-based earnings)</strong>.</li>
-            </ul>
-        </div>
 
-        <div class="label-container">
-            <label for="ibs">Interest-Bearing Invested Capital (IBS):</label>
-            <button class="expand-button" data-target="ibs-info">What is Interest-Bearing Capital?</button>
-        </div>
-        <input type="text" id="ibs" name="ibs" placeholder="Enter IBS" required>
-        <div id="ibs-info" class="expand-section">
-            <h3>📈 What is Interest-Bearing Capital?</h3>
-            <p>Interest-Bearing Invested Capital refers to <strong>funds placed in financial instruments that generate interest (riba)</strong>.</p>
-
-            <h4>💡 Why does Interest-Bearing Capital matter in Islamic finance?</h4>
-            <p>Shariah law strictly prohibits <strong>earning money from interest-based investments</strong>.
-            Companies must ensure their financial holdings <strong>avoid non-compliant instruments</strong>.</p>
-
-            <h4>🧐 Common Questions</h4>
-            <ul>
-                <li><strong>Q:</strong> What financial assets are considered non-compliant?
-                    <br><strong>A:</strong> Bonds, conventional savings accounts, and <strong>fixed-income securities that pay interest.</strong></li>
-                <li><strong>Q:</strong> How can companies ensure their investments are halal?
-                    <br><strong>A:</strong> By using <strong>Islamic investment vehicles</strong> like <strong>Sukuk (Islamic bonds)</strong> and Shariah-compliant stocks.</li>
-            </ul>
-        </div>
-
-        <div class="label-container">
-            <label for="hr">Haram Revenue (HR):</label>
-            <button class="expand-button" data-target="hr-info">What is Haram Revenue?</button>
-        </div>
-        <input type="text" id="hr" name="hr" placeholder="Enter HR" required>
-        <div id="hr-info" class="expand-section">
-            <h3>⚠️ What is Haram Revenue?</h3>
-            <p>Haram Revenue refers to <strong>money earned from activities Islam prohibits</strong>. Examples include:
-            <ul>
-                <li><strong>Interest-based banking (Riba)</strong></li>
-                <li><strong>Alcohol, gambling, and pork-related businesses</strong></li>
-                <li><strong>Adult entertainment or unethical industries</strong></li>
-            </ul></p>
-
-            <h4>💡 Why is this important?</h4>
-            <p>Islamic finance prohibits profiting from haram sources. If <strong>haram revenue exceeds 5% of total revenue</strong>,
-            companies may need <strong>to purify earnings</strong> or risk non-compliance.</p>
-
-            <h4>🧐 Common Questions</h4>
-            <ul>
-                <li><strong>Q:</strong> What if a company earns only a small percentage from haram sources?
-                    <br><strong>A:</strong> Scholars permit companies to <strong>purify earnings</strong> if they are under the 5% limit.</li>
-                <li><strong>Q:</strong> How can companies handle non-compliant revenue?
-                    <br><strong>A:</strong> By <strong>donating impure earnings</strong> to charity and limiting reliance on haram business streams.</li>
-            </ul>
-        </div>
-
-        <button type="submit">Submit</button>
-    </form>
-
-    {% if results_display %}
-    <div class="results-container">
-        <h2>Financial Screening Results</h2>
-        <div class="result-box {% if 'non-compliant' in ar_result %}non-compliant{% else %}compliant{% endif %}">{{ ar_result }}</div>
-        <div class="result-box {% if 'non-compliant' in debt_result %}non-compliant{% else %}compliant{% endif %}">{{ debt_result }}</div>
-        <div class="result-box {% if 'non-compliant' in liquid_result %}non-compliant{% else %}compliant{% endif %}">{{ liquid_result }}</div>
-        <div class="result-box {% if 'non-compliant' in haram_result %}non-compliant{% else %}compliant{% endif %}">{{ haram_result }}</div>
     </div>
-    {% endif %}
 
-    {% if error_message %}
-    <div class="error-message">{{ error_message }}</div>
-    {% endif %}
+<footer>
+    <div class="footer-content">
+        <div class="footer-text">
+            <p>&copy; 2025 Darul Quran. Powered By Rawdah LLC. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="/terms">Terms & Conditions</a> |
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
             const popupOverlay = document.getElementById("popup-overlay");
             const closePopupButton = document.getElementById("close-popup-button");
 
@@ -220,8 +262,8 @@
             closePopupButton?.addEventListener("click", function () {
                 popupOverlay.style.display = "none";
             });
-        });
-    </script>
+});
+    </script
 
 </body>
 
