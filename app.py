@@ -57,7 +57,7 @@ def index():
             hr = safe_float(request.form.get("hr", ""))
 
             if None in [mv, tr, ar, debt, cash, ibs, hr]:
-                raise ValueError("Invalid input. Please enter numeric values.")
+                raise ValueError("Missing or Invalid input. Please fill all sections with numeric values.")
 
             ar_ratio = (ar / mv) * 100 if mv else 0
             debt_ratio = (debt / mv) * 100 if mv else 0
@@ -76,7 +76,7 @@ def index():
 
             results_display = True
         except ValueError:
-            error_message = "Invalid input. Please enter numeric values."
+            error_message = "Missing or Invalid input. Please fill all sections with numeric values."
 
     return render_template("index.html", show_popup="submitted" not in session, error_message=error_message,
                            results_display=results_display, ar_result=ar_result, debt_result=debt_result,
