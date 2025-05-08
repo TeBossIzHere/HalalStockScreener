@@ -82,5 +82,5 @@ def index():
                            results_display=results_display, ar_result=ar_result, debt_result=debt_result,
                            liquid_result=liquid_result, haram_result=haram_result)
 
-if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=True)  # ✅ Restored Flask's IP address on launch
+# if __name__ == "__main__":
+#     app.run(host="127.0.0.1", port=5000, debug=True)  # ✅ Restored Flask's IP address on launch
