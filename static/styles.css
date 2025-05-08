@@ -23,7 +23,7 @@ body {
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents tiling */
     min-width: 900px; /* Prevents shrinking below 1024px */
-    overflow-x: auto; /* Allows horizontal scrolling */
+    overflow-x: auto; /* Allows horizontal scrolling. */
 
 }
 
