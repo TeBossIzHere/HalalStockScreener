@@ -2,6 +2,11 @@ Halal Stock Screener
 ====================
 
 ![PagePopUp](ReadMeImages/PagePopUp.png)
+![PagePopUp](ReadMeImages/Home.png)
+![PagePopUp](ReadMeImages/MiddlePage.png)
+![PagePopUp](ReadMeImages/BottomPage.png)
+![PagePopUp](ReadMeImages/ExampleofWhatIs.png)
+![PagePopUp](ReadMeImages/ExampleCompanyEntry.png)
 
 ---
 
