@@ -23,16 +23,16 @@
 # - (Cash + Interest-Bearing Securities) / Market Value of Equity (36-month average) < 33%
 # - Revenue from haram sources < 5% of total revenue.
 
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, jsonify
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "your_unique_secret_key"  # ✅ Fix: Added secret key to enable sessions
+
+app.config["SECRET_KEY"] = "your_unique_secret_key"
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    # ✅ Properly reset session on refresh (ensures fresh page state)
     if request.method == "GET":
         session.clear()
 
@@ -41,7 +41,7 @@ def index():
     ar_result, debt_result, liquid_result, haram_result = "", "", "", ""
 
     if request.method == "POST":
-        session["submitted"] = True  # ✅ Track form submission to prevent pop-up after submit..
+        session["submitted"] = True
 
         try:
             def safe_float(value):
@@ -82,5 +82,5 @@ def index():
                            results_display=results_display, ar_result=ar_result, debt_result=debt_result,
                            liquid_result=liquid_result, haram_result=haram_result)
 
-# if __name__ == "__main__":
-#     app.run(host="127.0.0.1", port=5000, debug=True)  # ✅ Restored Flask's IP address on launch
+if __name__ == "__main__":
+    app.run(debug=True)
