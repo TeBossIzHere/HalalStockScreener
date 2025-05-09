@@ -41,7 +41,7 @@ def index():
     ar_result, debt_result, liquid_result, haram_result = "", "", "", ""
 
     if request.method == "POST":
-        session["submitted"] = True  # ✅ Track form submission to prevent pop-up after submit.
+        session["submitted"] = True  # ✅ Track form submission to prevent pop-up after submit..
 
         try:
             def safe_float(value):
