@@ -1,6 +1,8 @@
 Halal Stock Screener  
 ====================
 
+![PagePopUp](ReadMeImages/PagePopUp.png)
+
 ---
 
 **Who is this for?**
