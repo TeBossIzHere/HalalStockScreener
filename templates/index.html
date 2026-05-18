@@ -36,12 +36,12 @@
 
 
     {% if show_popup %}
-        <div id="popup-overlay" class="popup-overlay" style="display: flex;">
+        <div id="popup-overlay" class="popup-overlay" style="display: flex;" tabindex="-1" role="dialog" aria-labelledby="popup-title" aria-modal="true">
     {% else %}
-        <div id="popup-overlay" class="popup-overlay" style="display: none;">
+        <div id="popup-overlay" class="popup-overlay" style="display: none;" tabindex="-1" role="dialog" aria-labelledby="popup-title" aria-modal="true">
     {% endif %}
         <div class="popup-box">
-            <p>
+            <p id="popup-title">
                 <strong>As-salamu alaykum.</strong>
 
                 </p>
@@ -254,18 +254,23 @@
     document.addEventListener("DOMContentLoaded", function () {
             const popupOverlay = document.getElementById("popup-overlay");
             const closePopupButton = document.getElementById("close-popup-button");
+            let lastFocusedElement;
 
             if (popupOverlay && {{ show_popup | tojson }}) {
                 popupOverlay.style.display = "flex";
+                lastFocusedElement = document.activeElement;
+                popupOverlay.focus();
             }
 
             closePopupButton?.addEventListener("click", function () {
                 popupOverlay.style.display = "none";
+                lastFocusedElement?.focus();
             });
 
             closePopupButton?.addEventListener("keydown", function (event) {
                 if (event.key === "Enter" || event.key === " ") {
                     popupOverlay.style.display = "none";
+                    lastFocusedElement?.focus();
                 }
             });
 });
