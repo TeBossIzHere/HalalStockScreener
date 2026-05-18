@@ -37,9 +37,9 @@
 
 
     {% if show_popup %}
-        <div id="popup-overlay" class="popup-overlay" style="display: flex;">
+        <div id="popup-overlay" class="popup-overlay" style="display: flex;" aria-live="polite">
     {% else %}
-        <div id="popup-overlay" class="popup-overlay" style="display: none;">
+        <div id="popup-overlay" class="popup-overlay" style="display: none;" aria-live="polite">
     {% endif %}
         <div class="popup-box" tabindex="-1">
             <p>
