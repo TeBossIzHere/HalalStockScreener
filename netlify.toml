@@ -1,0 +1,15 @@
+# Netlify configuration for Halal Stock Screener
+# The app is a fully static site (HTML + CSS + JS). The build step just
+# assembles the public-facing files into ./dist so we don't upload the
+# Python source, node_modules, or the unused my-app/ scaffold.
+
+[build]
+  publish = "dist"
+  command = "mkdir -p dist/static && cp index.html dist/index.html && cp -R static/. dist/static/"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -101,3 +101,36 @@ This tool is intended for **educational and research purposes only**.
 It does not constitute financial advice. Please consult a qualified Islamic scholar or financial advisor for personal investment decisions.
 
 Allahu a'alam.
+
+---
+
+## Deployment (Netlify)
+
+The site is now a fully static page (HTML + CSS + JS). The original Flask app (`app.py`) is kept for local development reference, but is **not** required for the live site — the screening math runs entirely in the browser.
+
+### Deploy via Netlify dashboard
+
+1. Push this repo to GitHub.
+2. In Netlify, **Add new site → Import from Git** and pick the repo.
+3. Netlify will read `netlify.toml`:
+   - **Build command:** `mkdir -p dist/static && cp index.html dist/index.html && cp -R static/. dist/static/`
+   - **Publish directory:** `dist`
+4. Click **Deploy site**. No environment variables are needed.
+
+### Deploy via Netlify CLI
+
+```bash
+npm install -g netlify-cli
+netlify login
+netlify deploy --build      # preview
+netlify deploy --build --prod   # production
+```
+
+### Local preview
+
+```bash
+# any static server works, e.g.:
+python3 -m http.server 8000
+# then open http://localhost:8000
+```
+
