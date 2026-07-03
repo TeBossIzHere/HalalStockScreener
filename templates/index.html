@@ -24,6 +24,10 @@
             });
 
             document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape" && popupOverlay.style.display === "flex") {
+                    popupOverlay.style.display = "none";
+                    donationButton.focus();
+                }
                 if (event.key === "Tab" && popupOverlay.style.display === "flex") {
                     const focusableElements = popupOverlay.querySelectorAll('button');
                     const firstElement = focusableElements[0];
