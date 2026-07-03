@@ -254,9 +254,14 @@
     document.addEventListener("DOMContentLoaded", function () {
             const popupOverlay = document.getElementById("popup-overlay");
             const closePopupButton = document.getElementById("close-popup-button");
+            const firstFocusableElement = closePopupButton;
+            const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+            const focusableContent = popupOverlay.querySelectorAll(focusableElements);
+            const lastFocusableElement = focusableContent[focusableContent.length - 1];
 
             if (popupOverlay && {{ show_popup | tojson }}) {
                 popupOverlay.style.display = "flex";
+                firstFocusableElement.focus();
             }
 
             closePopupButton?.addEventListener("click", function () {
@@ -266,6 +271,26 @@
             closePopupButton?.addEventListener("keydown", function (event) {
                 if (event.key === "Enter" || event.key === " ") {
                     popupOverlay.style.display = "none";
+                }
+            });
+
+            popupOverlay.addEventListener('keydown', function(e) {
+                let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+                if (!isTabPressed) {
+                    return;
+                }
+
+                if (e.shiftKey) {
+                    if (document.activeElement === firstFocusableElement) {
+                        e.preventDefault();
+                        lastFocusableElement.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusableElement) {
+                        e.preventDefault();
+                        firstFocusableElement.focus();
+                    }
                 }
             });
 });
