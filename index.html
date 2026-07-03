@@ -97,10 +97,10 @@
         <form id="screener-form">
 
             <div class="label-container">
-                <label for="mv">Market Value :</label>
+                <label id="mv-label" for="mv">Market Value :</label>
                 <button type="button" class="expand-button" data-target="mv-info">What is Market Value?</button>
             </div>
-            <input type="text" id="mv" name="mv" placeholder="Enter MV" required>
+            <input type="text" id="mv" name="mv" placeholder="Enter MV" required aria-labelledby="mv-label">
             <div id="mv-info" class="expand-section">
                 <p>Market value is essential in understanding how investors perceive the company in real-time. For compliant companies, it&rsquo;s not just about the market value in general, but also about ensuring that the business activities align with Islamic principles. Shariah compliance boards like <strong>AAOIFI</strong> (Accounting and Auditing Organization for Islamic Financial Institutions) provide guidelines to ensure that companies only engage in permissible activities. This includes avoiding investments in companies with large amounts of non-compliant income (like from alcohol or gambling). Shariah-compliant companies must demonstrate their market value while adhering to these standards, fostering trust and long-term reliability.</p>
                 <p>&nbsp;</p>
