@@ -7,6 +7,43 @@
     <title>Financial Benchmarks</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const popupOverlay = document.getElementById("popup-overlay");
+            const closePopupButton = document.getElementById("close-popup-button");
+            const donationButton = document.querySelector(".donation-btn");
+
+            if (popupOverlay && {{ show_popup | tojson }}) {
+                popupOverlay.style.display = "flex";
+                closePopupButton.focus();
+            }
+
+            closePopupButton?.addEventListener("click", function () {
+                popupOverlay.style.display = "none";
+                donationButton.focus();
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Tab" && popupOverlay.style.display === "flex") {
+                    const focusableElements = popupOverlay.querySelectorAll('button');
+                    const firstElement = focusableElements[0];
+                    const lastElement = focusableElements[focusableElements.length - 1];
+
+                    if (event.shiftKey) {
+                        if (document.activeElement === firstElement) {
+                            lastElement.focus();
+                            event.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === lastElement) {
+                            firstElement.focus();
+                            event.preventDefault();
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
