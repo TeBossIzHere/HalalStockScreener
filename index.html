@@ -221,8 +221,15 @@
     <h2 style="text-align:center;color:#0b3d2e;margin-bottom:4px;">Featured Halal ETFs — Live Market Snapshot</h2>
     <h5 style="text-align:center;color:#9a9a9a;font-weight:400;margin-top:0;">Updated in real time from our partner data feeds</h5>
 
+    <div role="tablist" style="display:flex;gap:8px;justify-content:center;margin:14px 0 0;">
+        <span style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;background:#0b3d2e;color:#fff;font-size:13px;cursor:pointer;">1D</span>
+        <span style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1W</span>
+        <span style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1M</span>
+        <span style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1Y</span>
+    </div>
+
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:22px 0;">
-        <input type="text" id="ticker-search" tabindex="3" placeholder="Search a ticker (e.g. SPUS)"
+        <input type="text" id="ticker-search" tabindex="3" aria-describedby="ticker-search-help" placeholder="Search a ticker (e.g. SPUS)"
                style="padding:9px 12px;border:1px solid #ccc;border-radius:6px;min-width:220px;font-size:14px;">
         <select id="snapshot-sort" style="padding:9px 12px;border:1px solid #ccc;border-radius:6px;font-size:14px;">
             <option>Sort by: Symbol</option>
@@ -236,6 +243,8 @@
                 <polyline points="21 3 21 9 15 9"></polyline>
             </svg>
         </button>
+        <input type="image" src="https://cdn-icons-png.flaticon.com/512/54/54481.png" width="36" height="36"
+               style="border:1px solid #ccc;border-radius:6px;padding:5px;cursor:pointer;">
     </div>
 
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
@@ -256,6 +265,17 @@
             <h4 style="margin:10px 0 2px;">SPSK</h4>
             <p style="margin:0;color:#111;">$20.74 <span style="color:#0a8f3c;">+0.11%</span></p>
             <p style="margin:6px 0 0;color:#c9c9c9;font-size:12px;">SP Funds Dow Jones Global Sukuk ETF</p>
+        </div>
+    </div>
+
+    <div style="text-align:center;margin:24px 0 0;">
+        <div role="checkbox" tabindex="0"
+             style="display:inline-block;padding:8px 16px;margin:0 6px;border:1px solid #d9d9d9;border-radius:6px;color:#333;font-size:13px;cursor:pointer;">
+            ☆ Add SPUS to watchlist
+        </div>
+        <div role="combobox" tabindex="0"
+             style="display:inline-block;padding:8px 16px;margin:0 6px;border:1px solid #d9d9d9;border-radius:6px;color:#333;font-size:13px;cursor:pointer;">
+            Set a price alert ▾
         </div>
     </div>
 
