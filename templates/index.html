@@ -21,11 +21,11 @@
         <ul class="nav-menu">
           <li><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
-          <li class="dropdown">
-            <a href="#" class="active">Services</a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Financial Screening</a></li>
-              <li><a href="#">Consultation</a></li>
+          <li class="dropdown" role="menu">
+            <a href="#" class="active" role="menuitem" tabindex="0">Services</a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#" role="menuitem" tabindex="-1">Financial Screening</a></li>
+              <li><a href="#" role="menuitem" tabindex="-1">Consultation</a></li>
             </ul>
           </li>
           <li><a href="#">Fundraising</a></li>
@@ -298,6 +298,37 @@
                 previouslyFocusedElement.focus();
             });
 });
+        document.querySelectorAll('.dropdown > a').forEach(dropdownToggle => {
+            dropdownToggle.addEventListener('keydown', function(event) {
+                const dropdownMenu = this.nextElementSibling;
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+                } else if (event.key === 'ArrowDown') {
+                    event.preventDefault();
+                    dropdownMenu.querySelector('a').focus();
+                }
+            });
+        });
+
+        document.querySelectorAll('.dropdown-menu a').forEach(menuItem => {
+            menuItem.addEventListener('keydown', function(event) {
+                const menuItems = Array.from(this.parentElement.children);
+                const currentIndex = menuItems.indexOf(this);
+                if (event.key === 'ArrowDown') {
+                    event.preventDefault();
+                    const nextItem = menuItems[currentIndex + 1] || menuItems[0];
+                    nextItem.focus();
+                } else if (event.key === 'ArrowUp') {
+                    event.preventDefault();
+                    const prevItem = menuItems[currentIndex - 1] || menuItems[menuItems.length - 1];
+                    prevItem.focus();
+                } else if (event.key === 'Escape') {
+                    event.preventDefault();
+                    this.closest('.dropdown').querySelector('a').focus();
+                }
+            });
+        });
     </script>
 
 </body>
