@@ -259,8 +259,28 @@
     document.addEventListener("DOMContentLoaded", function () {
             const popupOverlay = document.getElementById("popup-overlay");
             const closePopupButton = document.getElementById("close-popup-button");
-            const firstFocusableElement = document.querySelector('#popup-overlay button, #popup-overlay a, #popup-overlay input, #popup-overlay select, #popup-overlay textarea'); // Focus on the first focusable element in the popup
+            const focusableElements = popupOverlay.querySelectorAll('button, a, input, select, textarea');
+            const firstFocusableElement = focusableElements[0];
+            const lastFocusableElement = focusableElements[focusableElements.length - 1];
             const previouslyFocusedElement = document.activeElement;
+
+            function trapFocus(event) {
+                if (event.key === 'Tab') {
+                    if (event.shiftKey) {
+                        if (document.activeElement === firstFocusableElement) {
+                            event.preventDefault();
+                            lastFocusableElement.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusableElement) {
+                            event.preventDefault();
+                            firstFocusableElement.focus();
+                        }
+                    }
+                }
+            }
+
+            popupOverlay.addEventListener('keydown', trapFocus);
 
             if (popupOverlay && {{ show_popup | tojson }}) {
                 popupOverlay.style.display = "flex";
