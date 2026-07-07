@@ -28,6 +28,18 @@
 
         closePopupButton.addEventListener('click', closePopup);
 
+        // Focus trap logic
+        document.addEventListener('keydown', function(event) {
+            if (popupOverlay.style.display === 'flex') {
+                if (event.key === 'Tab') {
+                    if (document.activeElement === closePopupButton && !event.shiftKey) {
+                        event.preventDefault();
+                        closePopupButton.focus();
+                    }
+                }
+            }
+        });
+
         // Example trigger for opening the popup
         document.querySelector('.donation-btn').addEventListener('click', function(event) {
             event.preventDefault();
