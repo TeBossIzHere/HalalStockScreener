@@ -20,8 +20,8 @@
           <li><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
           <li class="dropdown">
-            <a href="#" class="active">Services</a>
-            <ul class="dropdown-menu">
+            <a href="#" class="active" role="button" aria-haspopup="true" aria-expanded="false" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { toggleDropdown(this); }">Services</a>
+            <ul class="dropdown-menu" role="menu">
               <li><a href="#">Financial Screening</a></li>
               <li><a href="#">Consultation</a></li>
             </ul>
@@ -265,6 +265,12 @@
                 popupOverlay.style.display = "none";
             });
 });
+        function toggleDropdown(element) {
+            const dropdownMenu = element.nextElementSibling;
+            const isExpanded = element.getAttribute('aria-expanded') === 'true';
+            element.setAttribute('aria-expanded', !isExpanded);
+            dropdownMenu.style.display = isExpanded ? 'none' : 'block';
+        }
     </script>
 
 </body>
