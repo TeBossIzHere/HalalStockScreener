@@ -77,7 +77,7 @@
         <ul class="nav-menu">
           <li><a href="#" style="text-decoration: underline;">Home</a></li>
           <li><a href="#" style="text-decoration: underline;">About Us</a></li>
-          <li class="dropdown" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" onKeyDown="handleDropdownKeydown(event)">
+          <li class="dropdown" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" onKeyDown="if(event.key === 'Enter' || event.key === ' ') handleDropdownKeydown(event)">
             <a href="#" class="active" style="text-decoration: underline;">Services</a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#" style="text-decoration: underline;">Financial Screening</a></li>
