@@ -138,7 +138,7 @@
 
             <div class="label-container">
                 <label for="ar">Accounts Receivable :</label>
-                <button class="expand-button" data-target="ar-info">What is Accounts Receivable?</button>
+                <button class="expand-button" data-target="ar-info" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();">What is Accounts Receivable?</button>
             </div>
             <input type="text" id="ar" name="ar" placeholder="Enter Accounts Receivable" required>
             <div id="ar-info" class="expand-section">
