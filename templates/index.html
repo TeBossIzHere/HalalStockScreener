@@ -259,7 +259,7 @@
     document.addEventListener("DOMContentLoaded", function () {
             const popupOverlay = document.getElementById("popup-overlay");
             const closePopupButton = document.getElementById("close-popup-button");
-            const firstFocusableElement = closePopupButton; // Assuming the close button is the first focusable element
+            const firstFocusableElement = document.querySelector('#popup-overlay button, #popup-overlay a, #popup-overlay input, #popup-overlay select, #popup-overlay textarea'); // Focus on the first focusable element in the popup
             const previouslyFocusedElement = document.activeElement;
 
             if (popupOverlay && {{ show_popup | tojson }}) {
