@@ -280,7 +280,13 @@
                 }
             }
 
-            popupOverlay.addEventListener('keydown', trapFocus);
+            popupOverlay.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    popupOverlay.style.display = 'none';
+                    previouslyFocusedElement.focus();
+                }
+                trapFocus(event);
+            });
 
             if (popupOverlay && {{ show_popup | tojson }}) {
                 popupOverlay.style.display = "flex";
