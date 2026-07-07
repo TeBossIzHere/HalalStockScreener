@@ -7,6 +7,57 @@
     <title>Financial Benchmarks</title>
     <link rel="stylesheet" href="static/styles.css">
     <script defer src="static/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var popupOverlay = document.getElementById('popup-overlay');
+            var closePopupButton = document.getElementById('close-popup-button');
+            var lastFocusedElement;
+
+            function trapFocus(event) {
+                var focusableElements = popupOverlay.querySelectorAll('button');
+                var firstFocusableElement = focusableElements[0];
+                var lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+                if (event.shiftKey) {
+                    if (document.activeElement === firstFocusableElement) {
+                        lastFocusableElement.focus();
+                        event.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusableElement) {
+                        firstFocusableElement.focus();
+                        event.preventDefault();
+                    }
+                }
+            }
+
+            function openPopup() {
+                lastFocusedElement = document.activeElement;
+                popupOverlay.style.display = 'flex';
+                closePopupButton.focus();
+                document.addEventListener('keydown', trapFocus);
+            }
+
+            function closePopup() {
+                popupOverlay.style.display = 'none';
+                lastFocusedElement.focus();
+                document.removeEventListener('keydown', trapFocus);
+            }
+
+            closePopupButton.addEventListener('click', closePopup);
+            closePopupButton.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    closePopup();
+                }
+            });
+
+            // Example trigger to open the popup
+            document.querySelector('.donation-btn').addEventListener('click', function(event) {
+                event.preventDefault();
+                openPopup();
+            });
+        });
+    </script>
 </head>
 
 <body>
