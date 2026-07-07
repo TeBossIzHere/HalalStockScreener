@@ -63,6 +63,12 @@
         }
 
         closePopupButton.addEventListener('click', closeModal);
+        closePopupButton.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                closeModal();
+            }
+        });
 
         // Example trigger to open the modal
         document.querySelector('.donation-btn').addEventListener('click', function(e) {
