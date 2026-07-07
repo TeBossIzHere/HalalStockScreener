@@ -98,7 +98,7 @@
 
             <div class="label-container">
                 <label for="mv">Market Value :</label>
-                <button type="button" class="expand-button" data-target="mv-info">What is Market Value? (Click to learn more about how market value is calculated and its importance in financial assessments.)</button>
+                <button type="button" class="expand-button" data-target="mv-info" onClick="toggleSection('mv-info')" onKeyDown="if(event.key === 'Enter' || event.key === ' ') toggleSection('mv-info')">What is Market Value? (Click to learn more about how market value is calculated and its importance in financial assessments.)</button>
             </div>
             <input type="text" id="mv" name="mv" placeholder="Enter MV" required>
             <div id="mv-info" class="expand-section">
@@ -112,7 +112,7 @@
 
             <div class="label-container">
                 <label for="tr">Total Revenue :</label>
-                <button type="button" class="expand-button" data-target="tr-info">What is Total Revenue? (Click to learn more about the total revenue concept and its role in financial assessments.)</button>
+                <button type="button" class="expand-button" data-target="tr-info" onClick="toggleSection('tr-info')" onKeyDown="if(event.key === 'Enter' || event.key === ' ') toggleSection('tr-info')">What is Total Revenue? (Click to learn more about the total revenue concept and its role in financial assessments.)</button>
             </div>
             <input type="text" id="tr" name="tr" placeholder="Enter TR" required>
             <div id="tr-info" class="expand-section">
@@ -125,7 +125,7 @@
 
             <div class="label-container">
                 <label for="ar">Accounts Receivable :</label>
-                <button type="button" class="expand-button" data-target="ar-info">What is Accounts Receivable? (Click to learn more about how accounts receivable impacts financial health and Shariah compliance.)</button>
+                <button type="button" class="expand-button" data-target="ar-info" onClick="toggleSection('ar-info')" onKeyDown="if(event.key === 'Enter' || event.key === ' ') toggleSection('ar-info')">What is Accounts Receivable? (Click to learn more about how accounts receivable impacts financial health and Shariah compliance.)</button>
             </div>
             <input type="text" id="ar" name="ar" placeholder="Enter AR" required>
             <div id="ar-info" class="expand-section">
@@ -138,7 +138,7 @@
 
             <div class="label-container">
                 <label for="debt">Debt:</label>
-                <button type="button" class="expand-button" data-target="debt-info">What is Debt? (Click to learn more about the concept of debt and its implications in financial assessments.)</button>
+                <button type="button" class="expand-button" data-target="debt-info" onClick="toggleSection('debt-info')" onKeyDown="if(event.key === 'Enter' || event.key === ' ') toggleSection('debt-info')">What is Debt? (Click to learn more about the concept of debt and its implications in financial assessments.)</button>
             </div>
             <input type="text" id="debt" name="debt" placeholder="Enter Debt" required>
             <div id="debt-info" class="expand-section">
@@ -151,7 +151,7 @@
 
             <div class="label-container">
                 <label for="cash" id="cash-label">Cash:</label>
-                <button type="button" class="expand-button" data-target="cash-info">What is Cash?</button>
+                <button type="button" class="expand-button" data-target="cash-info" onClick="toggleSection('cash-info')" onKeyDown="if(event.key === 'Enter' || event.key === ' ') toggleSection('cash-info')">What is Cash?</button>
             </div>
             <input type="text" id="cash" name="cash" placeholder="Enter Cash" required aria-labelledby="cash-label">
             <div id="cash-info" class="expand-section">
@@ -164,7 +164,7 @@
 
             <div class="label-container">
                 <label for="ibs" id="ibs-label">Interest-Bearing Invested Capital :</label>
-                <button type="button" class="expand-button" data-target="ibs-info">What is Interest-Bearing Capital?</button>
+                <button type="button" class="expand-button" data-target="ibs-info" onClick="toggleSection('ibs-info')" onKeyDown="if(event.key === 'Enter' || event.key === ' ') toggleSection('ibs-info')">What is Interest-Bearing Capital?</button>
             </div>
             <input type="text" id="ibs" name="ibs" placeholder="Enter IBS" required aria-labelledby="ibs-label">
             <div id="ibs-info" class="expand-section">
@@ -177,7 +177,7 @@
 
             <div class="label-container">
                 <label for="hr" id="hr-label">Haram Revenue :</label>
-                <button type="button" class="expand-button" data-target="hr-info">What is Haram Revenue?</button>
+                <button type="button" class="expand-button" data-target="hr-info" onClick="toggleSection('hr-info')" onKeyDown="if(event.key === 'Enter' || event.key === ' ') toggleSection('hr-info')">What is Haram Revenue?</button>
             </div>
             <input type="text" id="hr" name="hr" placeholder="Enter HR" required aria-labelledby="hr-label">
             <div id="hr-info" class="expand-section">
