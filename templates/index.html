@@ -269,6 +269,10 @@
 
                 // Trap focus within the popup
                 popupOverlay.addEventListener('keydown', function(event) {
+                    if (event.key === 'Escape') {
+                        popupOverlay.style.display = 'none';
+                        lastFocusedElement?.focus();
+                    }
                     if (event.key === 'Tab') {
                         const focusableElements = popupOverlay.querySelectorAll('button');
                         const firstElement = focusableElements[0];
