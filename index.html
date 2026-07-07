@@ -44,6 +44,12 @@
             document.removeEventListener('keydown', trapFocus);
         }
 
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
         closePopupButton.addEventListener('click', closeModal);
 
         // Example trigger to open the modal
