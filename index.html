@@ -7,6 +7,65 @@
     <title>Financial Benchmarks</title>
     <link rel="stylesheet" href="static/styles.css">
     <script defer src="static/script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popupOverlay = document.getElementById('popup-overlay');
+        const closePopupButton = document.getElementById('close-popup-button');
+        const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+        let focusableElements;
+        let firstFocusableElement;
+        let lastFocusableElement;
+        let previouslyFocusedElement;
+
+        function trapFocus(element) {
+            focusableElements = element.querySelectorAll(focusableElementsString);
+            firstFocusableElement = focusableElements[0];
+            lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+            element.addEventListener('keydown', function(e) {
+                const isTabPressed = (e.key === 'Tab' || e.keyCode === 9);
+
+                if (!isTabPressed) {
+                    return;
+                }
+
+                if (e.shiftKey) {
+                    if (document.activeElement === firstFocusableElement) {
+                        lastFocusableElement.focus();
+                        e.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === lastFocusableElement) {
+                        firstFocusableElement.focus();
+                        e.preventDefault();
+                    }
+                }
+            });
+        }
+
+        function openModal() {
+            previouslyFocusedElement = document.activeElement;
+            popupOverlay.style.display = 'flex';
+            firstFocusableElement.focus();
+            trapFocus(popupOverlay);
+        }
+
+        function closeModal() {
+            popupOverlay.style.display = 'none';
+            if (previouslyFocusedElement) {
+                previouslyFocusedElement.focus();
+            }
+        }
+
+        closePopupButton.addEventListener('click', closeModal);
+
+        // Example trigger to open the modal
+        document.querySelector('.donation-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
+    });
+</script>
 </head>
 
 <body>
