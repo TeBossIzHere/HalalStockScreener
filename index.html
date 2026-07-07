@@ -64,6 +64,13 @@
             e.preventDefault();
             openModal();
         });
+
+        document.querySelector('.donation-btn').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openModal();
+            }
+        });
     });
 </script>
 </head>
