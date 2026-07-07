@@ -155,7 +155,7 @@
 
             <div class="label-container">
                 <label for="debt">Debt:</label>
-                <button class="expand-button" data-target="debt-info">What is Debt?</button>
+                <button class="expand-button" data-target="debt-info" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();">What is Debt?</button>
             </div>
             <label for="debt" class="visually-hidden">Enter the total debt amount</label>
             <input type="text" id="debt" name="debt" placeholder="Enter Debt" required>
