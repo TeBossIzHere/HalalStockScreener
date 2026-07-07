@@ -7,6 +7,52 @@
     <title>Financial Benchmarks</title>
     <link rel="stylesheet" href="static/styles.css">
     <script defer src="static/script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popupOverlay = document.getElementById('popup-overlay');
+        const closePopupButton = document.getElementById('close-popup-button');
+        let lastFocusedElement;
+
+        function trapFocus(event) {
+            const focusableElements = popupOverlay.querySelectorAll('button');
+            const firstFocusableElement = focusableElements[0];
+            const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+            if (event.shiftKey) {
+                if (document.activeElement === firstFocusableElement) {
+                    lastFocusableElement.focus();
+                    event.preventDefault();
+                }
+            } else {
+                if (document.activeElement === lastFocusableElement) {
+                    firstFocusableElement.focus();
+                    event.preventDefault();
+                }
+            }
+        }
+
+        function openModal() {
+            lastFocusedElement = document.activeElement;
+            popupOverlay.style.display = 'flex';
+            closePopupButton.focus();
+            document.addEventListener('keydown', trapFocus);
+        }
+
+        function closeModal() {
+            popupOverlay.style.display = 'none';
+            lastFocusedElement.focus();
+            document.removeEventListener('keydown', trapFocus);
+        }
+
+        closePopupButton.addEventListener('click', closeModal);
+
+        // Example trigger to open the modal
+        document.querySelector('.donation-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            openModal();
+        });
+    });
+</script>
 </head>
 
 <body>
