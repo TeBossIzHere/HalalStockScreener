@@ -270,11 +270,13 @@
 
     <div style="text-align:center;margin:24px 0 0;">
         <div role="checkbox" tabindex="0"
-             style="display:inline-block;padding:8px 16px;margin:0 6px;border:1px solid #d9d9d9;border-radius:6px;color:#333;font-size:13px;cursor:pointer;">
+             style="display:inline-block;padding:8px 16px;margin:0 6px;border:1px solid #d9d9d9;border-radius:6px;color:#333;font-size:13px;cursor:pointer;"
+             onClick="handleCheckboxClick(event)" onKeyDown="if(event.key === 'Enter' || event.key === ' ') handleCheckboxClick(event)">
             ☆ Add SPUS to watchlist (Press Enter to add)
         </div>
         <div role="combobox" tabindex="0"
-             style="display:inline-block;padding:8px 16px;margin:0 6px;border:1px solid #d9d9d9;border-radius:6px;color:#333;font-size:13px;cursor:pointer;">
+             style="display:inline-block;padding:8px 16px;margin:0 6px;border:1px solid #d9d9d9;border-radius:6px;color:#333;font-size:13px;cursor:pointer;"
+             onClick="handleComboboxClick(event)" onKeyDown="if(event.key === 'Enter' || event.key === ' ') handleComboboxClick(event)">
             Set a price alert ▾ (Press Enter to open options)
         </div>
     </div>
