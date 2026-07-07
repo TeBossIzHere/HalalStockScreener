@@ -32,9 +32,20 @@
         document.addEventListener('keydown', function(event) {
             if (popupOverlay.style.display === 'flex') {
                 if (event.key === 'Tab') {
-                    if (document.activeElement === closePopupButton && !event.shiftKey) {
-                        event.preventDefault();
-                        closePopupButton.focus();
+                    var focusableElements = popupOverlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    var firstElement = focusableElements[0];
+                    var lastElement = focusableElements[focusableElements.length - 1];
+
+                    if (event.shiftKey) { // shift + tab
+                        if (document.activeElement === firstElement) {
+                            event.preventDefault();
+                            lastElement.focus();
+                        }
+                    } else { // tab
+                        if (document.activeElement === lastElement) {
+                            event.preventDefault();
+                            firstElement.focus();
+                        }
                     }
                 }
             }
