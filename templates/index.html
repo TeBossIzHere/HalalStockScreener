@@ -223,7 +223,7 @@
         </form>
 
         {% if results_display %}
-        <div class="results-container">
+        <div class="results-container" role="region" aria-label="Financial Screening Results">
             <h2>Financial Screening Results</h2>
             <div class="result-box {% if 'non-compliant' in ar_result %}non-compliant{% else %}compliant{% endif %}">{{ ar_result }}</div>
             <div class="result-box {% if 'non-compliant' in debt_result %}non-compliant{% else %}compliant{% endif %}">{{ debt_result }}</div>
