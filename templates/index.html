@@ -138,7 +138,7 @@
 
             <div class="label-container">
                 <label for="ar">Accounts Receivable :</label>
-                <button class="expand-button" data-target="ar-info" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();">What is Accounts Receivable?</button>
+                <button class="expand-button" data-target="ar-info" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" aria-label="What is Accounts Receivable?">What is Accounts Receivable?</button>
             </div>
             <input type="text" id="ar" name="ar" placeholder="Enter Accounts Receivable" required>
             <div id="ar-info" class="expand-section">
@@ -155,7 +155,7 @@
 
             <div class="label-container">
                 <label for="debt">Debt:</label>
-                <button class="expand-button" data-target="debt-info" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();">What is Debt?</button>
+                <button class="expand-button" data-target="debt-info" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" aria-label="What is Debt?">What is Debt?</button>
             </div>
             <label for="debt" class="visually-hidden">Enter the total debt amount</label>
             <input type="text" id="debt" name="debt" placeholder="Enter Debt" required>
@@ -172,7 +172,7 @@
             </div>
                 <div class="label-container">
                 <label for="cash">Cash:</label>
-                <button class="expand-button" data-target="cash-info">What is Cash?</button>
+                <button class="expand-button" data-target="cash-info" aria-label="What is Cash?">What is Cash?</button>
             </div>
             <label for="cash">Cash:</label>
             <input type="text" id="cash" name="cash" placeholder="Enter Cash" required>
@@ -190,7 +190,7 @@
 
             <div class="label-container">
                 <label for="ibs">Interest-Bearing Invested Capital :</label>
-                <button class="expand-button" data-target="ibs-info">What is Interest-Bearing Capital?</button>
+                <button class="expand-button" data-target="ibs-info" aria-label="What is Interest-Bearing Capital?">What is Interest-Bearing Capital?</button>
             </div>
             <label for="ibs">Enter the interest-bearing invested capital amount</label>
             <input type="text" id="ibs" name="ibs" placeholder="Enter IBS" required>
@@ -208,7 +208,7 @@
 
             <div class="label-container">
                 <label for="hr">Haram Revenue :</label>
-                <button class="expand-button" data-target="hr-info">What is Haram Revenue?</button>
+                <button class="expand-button" data-target="hr-info" aria-label="What is Haram Revenue?">What is Haram Revenue?</button>
             </div>
             <label for="hr">Haram Revenue :</label>
             <input type="text" id="hr" name="hr" placeholder="Enter HR" required>
