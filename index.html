@@ -38,7 +38,10 @@
                 });
             }
 
+            var lastFocusedElement;
+
             function openPopup() {
+                lastFocusedElement = document.activeElement;
                 popupOverlay.style.display = 'flex';
                 closePopupButton.focus();
                 trapFocus(popupOverlay);
@@ -46,6 +49,9 @@
 
             function closePopup() {
                 popupOverlay.style.display = 'none';
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                }
             }
 
             closePopupButton.addEventListener('click', closePopup);
