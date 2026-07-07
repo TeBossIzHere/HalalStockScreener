@@ -7,6 +7,61 @@
     <title>Financial Benchmarks</title>
     <link rel="stylesheet" href="static/styles.css">
     <script defer src="static/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var popupOverlay = document.getElementById('popup-overlay');
+            var closePopupButton = document.getElementById('close-popup-button');
+            var lastFocusedElement;
+
+            function openModal() {
+                lastFocusedElement = document.activeElement;
+                popupOverlay.style.display = 'flex';
+                closePopupButton.focus();
+                trapFocus(popupOverlay);
+            }
+
+            function closeModal() {
+                popupOverlay.style.display = 'none';
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                }
+            }
+
+            function trapFocus(element) {
+                var focusableEls = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                var firstFocusableEl = focusableEls[0];  
+                var lastFocusableEl = focusableEls[focusableEls.length - 1];
+
+                element.addEventListener('keydown', function(e) {
+                    var isTabPressed = (e.key === 'Tab' || e.keyCode === 9);
+
+                    if (!isTabPressed) {
+                        return;
+                    }
+
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusableEl) {
+                            lastFocusableEl.focus();
+                            e.preventDefault();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusableEl) {
+                            firstFocusableEl.focus();
+                            e.preventDefault();
+                        }
+                    }
+                });
+            }
+
+            closePopupButton.addEventListener('click', closeModal);
+
+            // Example trigger to open the modal
+            document.querySelector('.donation-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        });
+    </script>
 </head>
 
 <body>
