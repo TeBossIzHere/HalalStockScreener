@@ -25,6 +25,11 @@
             element.addEventListener('keydown', function(e) {
                 const isTabPressed = (e.key === 'Tab' || e.keyCode === 9);
 
+                if (e.key === 'Escape' || e.keyCode === 27) {
+                    closeModal();
+                    return;
+                }
+
                 if (!isTabPressed) {
                     return;
                 }
