@@ -20,9 +20,9 @@
         <ul class="nav-menu">
           <li><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
-          <li class="dropdown" role="menu" tabindex="0" aria-haspopup="true">
+          <li class="dropdown" role="menu" tabindex="0" aria-haspopup="true" onkeydown="if(event.key === 'Enter' || event.key === ' ') { this.querySelector('.dropdown-menu').setAttribute('aria-hidden', this.querySelector('.dropdown-menu').getAttribute('aria-hidden') === 'true' ? 'false' : 'true'); }">
             <a href="#" class="active" role="button">Services</a>
-            <ul class="dropdown-menu" role="menu" aria-hidden="true">
+            <ul class="dropdown-menu" role="menu" aria-hidden="true" onkeydown="if(event.key === 'ArrowDown') { event.preventDefault(); const items = this.querySelectorAll('[role=menuitem]'); const index = Array.from(items).indexOf(document.activeElement); if(index < items.length - 1) items[index + 1].focus(); } else if(event.key === 'ArrowUp') { event.preventDefault(); const items = this.querySelectorAll('[role=menuitem]'); const index = Array.from(items).indexOf(document.activeElement); if(index > 0) items[index - 1].focus(); }">
               <li role="menuitem" tabindex="-1"><a href="#">Financial Screening</a></li>
               <li role="menuitem" tabindex="-1"><a href="#">Consultation</a></li>
             </ul>
