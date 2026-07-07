@@ -137,7 +137,7 @@
 
             <div class="label-container">
                 <label id="ar-label" for="ar">Accounts Receivable :</label>
-                <button class="expand-button" data-target="ar-info">What is Accounts Receivable?</button>
+                <button class="expand-button" data-target="ar-info" onkeydown="if(event.key === 'Enter' || event.key === ' ') { document.getElementById(this.getAttribute('data-target')).classList.toggle('expanded'); }">What is Accounts Receivable?</button>
             </div>
             <input type="text" id="ar" name="ar" placeholder="Enter AR" required aria-labelledby="ar-label">
             <div id="ar-info" class="expand-section">
