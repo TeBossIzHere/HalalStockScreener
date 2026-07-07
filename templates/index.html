@@ -254,13 +254,17 @@
     document.addEventListener("DOMContentLoaded", function () {
             const popupOverlay = document.getElementById("popup-overlay");
             const closePopupButton = document.getElementById("close-popup-button");
+            const firstFocusableElement = closePopupButton; // Assuming the close button is the first focusable element
+            const previouslyFocusedElement = document.activeElement;
 
             if (popupOverlay && {{ show_popup | tojson }}) {
                 popupOverlay.style.display = "flex";
+                firstFocusableElement.focus();
             }
 
             closePopupButton?.addEventListener("click", function () {
                 popupOverlay.style.display = "none";
+                previouslyFocusedElement.focus();
             });
 });
     </script>
