@@ -7,6 +7,34 @@
     <title>Financial Benchmarks</title>
     <link rel="stylesheet" href="static/styles.css">
     <script defer src="static/script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var popupOverlay = document.getElementById('popup-overlay');
+        var closePopupButton = document.getElementById('close-popup-button');
+        var lastFocusedElement;
+
+        function openPopup() {
+            lastFocusedElement = document.activeElement;
+            popupOverlay.style.display = 'flex';
+            closePopupButton.focus();
+        }
+
+        function closePopup() {
+            popupOverlay.style.display = 'none';
+            if (lastFocusedElement) {
+                lastFocusedElement.focus();
+            }
+        }
+
+        closePopupButton.addEventListener('click', closePopup);
+
+        // Example trigger for opening the popup
+        document.querySelector('.donation-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            openPopup();
+        });
+    });
+</script>
 </head>
 
 <body>
