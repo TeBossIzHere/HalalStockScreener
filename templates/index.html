@@ -104,7 +104,7 @@
 
             <div class="label-container">
                 <label id="mv-label" for="mv">Market Value :</label>
-                <button class="expand-button" data-target="mv-info">What is Market Value?</button>
+                <button class="expand-button" data-target="mv-info" onkeydown="if(event.key === 'Enter' || event.key === ' ') { document.getElementById(this.getAttribute('data-target')).classList.toggle('expanded'); }">What is Market Value?</button>
             </div>
             <input type="text" id="mv" name="mv" placeholder="Enter MV" required aria-labelledby="mv-label">
             <div id="mv-info" class="expand-section">
