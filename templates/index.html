@@ -264,6 +264,27 @@
                 popupOverlay.style.display = "flex";
                 lastFocusedElement = document.activeElement;
                 closePopupButton.focus();
+
+                // Add focus trap
+                popupOverlay.addEventListener('keydown', function(event) {
+                    if (event.key === 'Tab') {
+                        const focusableElements = popupOverlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                        const firstElement = focusableElements[0];
+                        const lastElement = focusableElements[focusableElements.length - 1];
+
+                        if (event.shiftKey) { // Shift + Tab
+                            if (document.activeElement === firstElement) {
+                                event.preventDefault();
+                                lastElement.focus();
+                            }
+                        } else { // Tab
+                            if (document.activeElement === lastElement) {
+                                event.preventDefault();
+                                firstElement.focus();
+                            }
+                        }
+                    }
+                });
             }
 
             closePopupButton?.addEventListener("click", function () {
