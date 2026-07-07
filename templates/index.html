@@ -224,10 +224,10 @@
         {% if results_display %}
         <div class="results-container">
             <h2>Financial Screening Results</h2>
-            <div class="result-box {% if 'non-compliant' in ar_result %}non-compliant{% else %}compliant{% endif %}">{{ ar_result }}</div>
-            <div class="result-box {% if 'non-compliant' in debt_result %}non-compliant{% else %}compliant{% endif %}">{{ debt_result }}</div>
-            <div class="result-box {% if 'non-compliant' in liquid_result %}non-compliant{% else %}compliant{% endif %}">{{ liquid_result }}</div>
-            <div class="result-box {% if 'non-compliant' in haram_result %}non-compliant{% else %}compliant{% endif %}">{{ haram_result }}</div>
+            <div class="result-box {% if 'non-compliant' in ar_result %}non-compliant{% else %}compliant{% endif %}">{{ ar_result }} <span class="sr-only">{{ 'non-compliant' if 'non-compliant' in ar_result else 'compliant' }}</span></div>
+            <div class="result-box {% if 'non-compliant' in debt_result %}non-compliant{% else %}compliant{% endif %}">{{ debt_result }} <span class="sr-only">{{ 'non-compliant' if 'non-compliant' in debt_result else 'compliant' }}</span></div>
+            <div class="result-box {% if 'non-compliant' in liquid_result %}non-compliant{% else %}compliant{% endif %}">{{ liquid_result }} <span class="sr-only">{{ 'non-compliant' if 'non-compliant' in liquid_result else 'compliant' }}</span></div>
+            <div class="result-box {% if 'non-compliant' in haram_result %}non-compliant{% else %}compliant{% endif %}">{{ haram_result }} <span class="sr-only">{{ 'non-compliant' if 'non-compliant' in haram_result else 'compliant' }}</span></div>
         </div>
         {% endif %}
 
