@@ -256,13 +256,17 @@
     document.addEventListener("DOMContentLoaded", function () {
             const popupOverlay = document.getElementById("popup-overlay");
             const closePopupButton = document.getElementById("close-popup-button");
+            let lastFocusedElement;
 
             if (popupOverlay && {{ show_popup | tojson }}) {
                 popupOverlay.style.display = "flex";
+                lastFocusedElement = document.activeElement;
+                closePopupButton.focus();
             }
 
             closePopupButton?.addEventListener("click", function () {
                 popupOverlay.style.display = "none";
+                lastFocusedElement?.focus();
             });
 });
         function toggleDropdown(element) {
