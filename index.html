@@ -47,9 +47,9 @@
         <ul class="nav-menu">
           <li><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
-          <li class="dropdown">
+          <li class="dropdown" role="presentation" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' '){ this.querySelector('.dropdown-menu').style.display = this.querySelector('.dropdown-menu').style.display === 'block' ? 'none' : 'block'; }">
             <a href="#" class="active">Services</a>
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu" role="menu" style="display: none;">
               <li role="menuitem" tabindex="0"><a href="#">Financial Screening</a></li>
               <li role="menuitem" tabindex="0"><a href="#">Consultation</a></li>
             </ul>
