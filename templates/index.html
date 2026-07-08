@@ -19,7 +19,7 @@
         <ul class="nav-menu">
           <li><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
-          <li class="dropdown">
+          <li class="dropdown" role="menu">
             <a href="#" class="active">Services</a>
             <ul class="dropdown-menu">
               <li><a href="#">Financial Screening</a></li>
@@ -30,7 +30,7 @@
           <li><a href="#">Prayer Timings</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
-        <a href="#" class="donation-btn" role="button">Donation</a>
+        <button class="donation-btn" aria-label="Donation">Donation</button>
       </nav>
     </header>
 
@@ -48,7 +48,7 @@
                 <p class="subtle"> While efforts are made to ensure accuracy, this tool does not serve as a substitute for professional financial or scholarly advice. Users are encouraged to consult qualified experts for verification.
                 <strong>Jazakum Allahu khayran.</strong>
                 </p>
-            <button id="close-popup-button" onkeydown="if(event.key === 'Enter' || event.key === ' ') { this.click(); }">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</button>
+            <button id="close-popup-button" onkeydown="if(event.key === 'Enter' || event.key === ' ') { this.click(); }" onclick="this.click();" aria-label="Close Popup">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</button>
         </div>
     </div>
 
@@ -57,7 +57,7 @@
     <div>
   <div class="container2">
     <h2>🧾 Shariah Compliance Screening</h2>
-    <br><br><p>This financial screening tool uses standards widely accepted by leading Shariah boards such as <strong>AAOIFI</strong> (Accounting and Auditing Organization for Islamic Financial Institutions), <strong>MSCI Islamic Index</strong>, <strong>FTSE Shariah</strong>, and platforms like <strong>Islamicly</strong> and <strong>Zoya</strong>. It helps identify whether a company’s financial structure aligns with Islamic ethical investing principles.</p2>
+    <br><br><p>This financial screening tool uses standards widely accepted by leading Shariah boards such as <strong>AAOIFI</strong> (Accounting and Auditing Organization for Islamic Financial Institutions), <strong>MSCI Islamic Index</strong>, <strong>FTSE Shariah</strong>, and platforms like <strong>Islamicly</strong> and <strong>Zoya</strong>. It helps identify whether a company’s financial structure aligns with Islamic ethical investing principles.</p>
 
     <p>Shariah compliance is based on <strong>four main financial screening ratios</strong>. These ensure that a company does not rely heavily on interest (riba), excessive debt, or delay in collecting money owed. Below is a simple explanation of each:</p>
 
