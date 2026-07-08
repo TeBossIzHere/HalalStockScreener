@@ -7,6 +7,34 @@
     <title>Financial Benchmarks</title>
     <link rel="stylesheet" href="static/styles.css">
     <script defer src="static/script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var popupOverlay = document.getElementById('popup-overlay');
+    var closeButton = document.getElementById('close-popup-button');
+    var lastFocusedElement;
+
+    function openModal() {
+      lastFocusedElement = document.activeElement;
+      popupOverlay.style.display = 'flex';
+      closeButton.focus();
+    }
+
+    function closeModal() {
+      popupOverlay.style.display = 'none';
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    closeButton.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  });
+</script>
 </head>
 
 <body>
@@ -34,16 +62,16 @@
       </nav>
     </header>
 
-    <div id="popup-overlay" class="popup-overlay" style="display: flex;">
+    <div id="popup-overlay" class="popup-overlay" style="display: flex;" tabindex="-1" role="dialog" aria-labelledby="popup-title" aria-modal="true">
         <div class="popup-box">
-            <p>
+            <p id="popup-title">
                 <strong>As-salamu alaykum.</strong>
             </p>
             <p class="subtle">
                 While efforts are made to ensure accuracy, this tool does not serve as a substitute for professional financial or scholarly advice. Users are encouraged to consult qualified experts for verification.
                 <strong>Jazakum Allahu khayran.</strong>
             </p>
-            <button id="close-popup-button">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</button>
+            <button id="close-popup-button" aria-label="Close popup">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</button>
         </div>
     </div>
 
