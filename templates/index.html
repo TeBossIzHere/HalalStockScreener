@@ -30,13 +30,13 @@
           <li><a href="#">Prayer Timings</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
-        <a href="#" class="donation-btn">Donation</a>
+        <a href="#" class="donation-btn" role="button">Donation</a>
       </nav>
     </header>
 
 
     {% if show_popup %}
-        <div id="popup-overlay" class="popup-overlay" style="display: flex;">
+        <div id="popup-overlay" class="popup-overlay" style="display: flex;" tabindex="-1" aria-live="polite">
     {% else %}
         <div id="popup-overlay" class="popup-overlay" style="display: none;">
     {% endif %}
@@ -48,7 +48,7 @@
                 <p class="subtle"> While efforts are made to ensure accuracy, this tool does not serve as a substitute for professional financial or scholarly advice. Users are encouraged to consult qualified experts for verification.
                 <strong>Jazakum Allahu khayran.</strong>
                 </p>
-            <button id="close-popup-button">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</button>
+            <button id="close-popup-button" onkeydown="if(event.key === 'Enter' || event.key === ' ') { this.click(); }">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</button>
         </div>
     </div>
 
@@ -56,7 +56,7 @@
 
     <div>
   <div class="container2">
-    <h2>🧾 Shariah Compliance Screening</h12>
+    <h2>🧾 Shariah Compliance Screening</h2>
     <br><br><p2>This financial screening tool uses standards widely accepted by leading Shariah boards such as <strong>AAOIFI</strong> (Accounting and Auditing Organization for Islamic Financial Institutions), <strong>MSCI Islamic Index</strong>, <strong>FTSE Shariah</strong>, and platforms like <strong>Islamicly</strong> and <strong>Zoya</strong>. It helps identify whether a company’s financial structure aligns with Islamic ethical investing principles.</p2>
 
     <p2>Shariah compliance is based on <strong>four main financial screening ratios</strong>. These ensure that a company does not rely heavily on interest (riba), excessive debt, or delay in collecting money owed. Below is a simple explanation of each:</p2>
@@ -135,10 +135,10 @@
             </div>
 
             <div class="label-container">
-                <label for="ar">Accounts Receivable :</label>
+                <label id="ar-label" for="ar">Accounts Receivable :</label>
                 <button class="expand-button" data-target="ar-info">What is Accounts Receivable?</button>
             </div>
-            <input type="text" id="ar" name="ar" placeholder="Enter AR" required>
+            <input type="text" id="ar" name="ar" placeholder="Enter AR" required aria-labelledby="ar-label">
             <div id="ar-info" class="expand-section">
                 <p class="" data-start="508" data-end="889"><strong data-start="127" data-end="150">Accounts receivable</strong> represents the money that a company is owed by its customers for products or services delivered on credit. It&rsquo;s important because it shows how much revenue a company expects to receive in the future. However, high accounts receivable can indicate that a company might be struggling to collect payments, which can affect its liquidity. This is especially relevant from a Shariah compliance perspective, as boards like the <strong data-start="572" data-end="656">Accounting and Auditing Organization for Islamic Financial Institutions (AAOIFI)</strong> and the <strong data-start="665" data-end="763">Shariah standards followed by the MSCI Islamic Index Series and Dow Jones Islamic Market Index</strong> emphasize strong liquidity and low credit risk in their screening processes. Analyzing this metric gives insight into a company&rsquo;s cash flow health and its effectiveness in managing credit risk, both of which are essential for upholding the financial discipline and ethical risk management encouraged in Islamic finance.</p>
                 <p class="" data-start="891" data-end="1099">&nbsp;</p>
@@ -152,10 +152,10 @@
             </div>
 
             <div class="label-container">
-                <label for="debt">Debt:</label>
+                <label id="debt-label" for="debt">Debt:</label>
                 <button class="expand-button" data-target="debt-info">What is Debt?</button>
             </div>
-            <input type="text" id="debt" name="debt" placeholder="Enter Debt" required>
+            <input type="text" id="debt" name="debt" placeholder="Enter Debt" required aria-labelledby="debt-label">
             <div id="debt-info" class="expand-section">
                 <p class="" data-start="166" data-end="631"><strong data-start="166" data-end="174">Debt</strong> refers to the total amount of money a company owes to external creditors. This metric includes loans, bonds, or other financial obligations the company has. Understanding a company&rsquo;s debt load is crucial for evaluating its financial stability and risk. High levels of debt can indicate financial strain, but debt can also be used strategically for growth if managed well. Investors use this metric to assess how risky an investment in the company might be. From a <strong data-start="640" data-end="674">Shariah compliance perspective</strong>, monitoring debt is especially critical. According to standards set by prominent Shariah boards such as the <strong data-start="783" data-end="867">Accounting and Auditing Organization for Islamic Financial Institutions (AAOIFI)</strong> and the <strong data-start="876" data-end="956">Shariah Supervisory Board (SSB) of MSCI and Dow Jones Islamic Market Indices</strong>, companies must maintain debt levels below a specific threshold&mdash;typically no more than <strong data-start="1044" data-end="1092">33% of total assets or market capitalization</strong>. This limit ensures the business does not overly rely on interest-based borrowing, which is prohibited in Islamic finance. Therefore, investors seeking Shariah-compliant opportunities rely heavily on this debt screening to ensure the company adheres to Islamic ethical guidelines regarding financial responsibility and interest avoidance.</p>
                 <p class="" data-start="891" data-end="1099">&nbsp;</p>
@@ -168,10 +168,10 @@
                 <p>Not all debt makes a company non-compliant, but <strong data-start="194" data-end="224" data-is-only-node="">interest-based debt (riba)</strong> is the primary concern in Islamic finance. Shariah-compliant screening standards&mdash;such as those established by <strong data-start="335" data-end="345">AAOIFI</strong>, <strong data-start="347" data-end="369">MSCI Islamic Index</strong>, and <strong data-start="375" data-end="409">Dow Jones Islamic Market Index</strong>&mdash;allow companies to carry a limited amount of conventional debt, typically not exceeding <strong data-start="498" data-end="543">33% of their total assets or market value</strong>. This threshold is used to strike a balance, recognizing that in many industries, some degree of conventional financing is hard to avoid. However, the goal is to ensure the company is not excessively reliant on interest-based financing.</p>
             </div>
                 <div class="label-container">
-                <label for="cash">Cash:</label>
+                <label id="cash-label" for="cash">Cash:</label>
                 <button class="expand-button" data-target="cash-info">What is Cash?</button>
             </div>
-            <input type="text" id="cash" name="cash" placeholder="Enter Cash" required>
+            <input type="text" id="cash" name="cash" placeholder="Enter Cash" required aria-labelledby="cash-label">
             <div id="cash-info" class="expand-section">
                 <p class="" data-start="166" data-end="631"><strong data-start="113" data-end="121">Cash</strong> represents the liquid assets that a company has readily available to pay its bills, reinvest in the business, or return to shareholders. It&rsquo;s a key metric for assessing a company&rsquo;s short-term financial health and ability to weather economic challenges. A company with high cash reserves has more flexibility, but excessive idle cash can also suggest inefficiency in using available capital for growth or expansion. From a Shariah compliance perspective, as outlined by leading standards like <strong data-start="614" data-end="698">AAOIFI (Accounting and Auditing Organization for Islamic Financial Institutions)</strong> and indices such as the <strong data-start="723" data-end="764">Dow Jones Islamic Market Index (DJIM)</strong> and <strong data-start="769" data-end="791">MSCI Islamic Index</strong>, cash must be carefully evaluated. Specifically, these standards assess whether the cash is deposited in <strong data-start="897" data-end="930" data-is-only-node="">interest-bearing (riba-based)</strong> accounts. If it is, and if such cash exceeds a certain threshold&mdash;typically <strong data-start="1006" data-end="1029">33% of total assets</strong>&mdash;it may render the company <strong data-start="1056" data-end="1073">non-compliant</strong>. Therefore, both the amount and the nature of the cash holdings matter when screening a company for Islamic investment.</p>
                 <p class="" data-start="891" data-end="1099">&nbsp;</p>
@@ -185,10 +185,10 @@
             </div>
 
             <div class="label-container">
-                <label for="ibs">Interest-Bearing Invested Capital :</label>
+                <label id="ibs-label" for="ibs">Interest-Bearing Invested Capital :</label>
                 <button class="expand-button" data-target="ibs-info">What is Interest-Bearing Capital?</button>
             </div>
-            <input type="text" id="ibs" name="ibs" placeholder="Enter IBS" required>
+            <input type="text" id="ibs" name="ibs" placeholder="Enter IBS" required aria-labelledby="ibs-label">
             <div id="ibs-info" class="expand-section">
                 <p class="" data-start="166" data-end="631"><strong data-start="92" data-end="131">Interest-bearing investment capital</strong> refers to the amount of money that a company has invested in financial instruments that generate interest, such as bonds or certificates of deposit. This is distinct from cash because it represents funds actively placed in interest-bearing vehicles rather than liquid assets available for immediate use. In Shariah-compliant financial screening&mdash;such as the standards set by <strong data-start="506" data-end="590">AAOIFI (Accounting and Auditing Organization for Islamic Financial Institutions)</strong> and followed by global Shariah indices like <strong data-start="635" data-end="676" data-is-only-node="">Dow Jones Islamic Market Index (DJIM)</strong>&mdash;this category is highly scrutinized. These standards typically require that the full value of such investments (not just the interest income) be accounted for when evaluating a company&rsquo;s compliance. That&rsquo;s because any involvement in interest (riba) contradicts Islamic ethical principles. Therefore, understanding this metric is essential for identifying companies that may not align with Islamic investment guidelines, even if their income statements appear compliant on the surface.</p>
                 <p class="" data-start="891" data-end="1099">&nbsp;</p>
@@ -202,10 +202,10 @@
             </div>
 
             <div class="label-container">
-                <label for="hr">Haram Revenue :</label>
+                <label id="hr-label" for="hr">Haram Revenue :</label>
                 <button class="expand-button" data-target="hr-info">What is Haram Revenue?</button>
             </div>
-            <input type="text" id="hr" name="hr" placeholder="Enter HR" required>
+            <input type="text" id="hr" name="hr" placeholder="Enter HR" required aria-labelledby="hr-label">
             <div id="hr-info" class="expand-section">
                 <p class="" data-start="166" data-end="631"><strong data-start="83" data-end="100">Haram Revenue</strong> refers to any income generated by activities or products that are prohibited under Islamic law. This could include, but is not limited to, revenue from gambling, alcohol, or interest-based financing (riba). Shariah-compliant financial institutions, such as the <strong data-start="362" data-end="446" data-is-only-node="">Accounting and Auditing Organization for Islamic Financial Institutions (AAOIFI)</strong> and <strong data-start="451" data-end="498">the Islamic Financial Services Board (IFSB)</strong>, emphasize the importance of identifying and excluding these revenues to maintain compliance with Islamic principles. For instance, companies that aim to operate in accordance with Shariah law must avoid engaging in businesses that generate <strong data-start="740" data-end="757">haram revenue</strong>, as these activities violate the ethical guidelines set out by Shariah boards. This is especially important for companies that serve Muslim communities or investors, ensuring they uphold the moral and religious obligations of their stakeholders. Tracking <strong data-start="1013" data-end="1030">haram revenue</strong> allows companies to ensure that they meet Shariah guidelines and demonstrate their commitment to ethical and lawful business practices.</p>
                 <p class="" data-start="891" data-end="1099">&nbsp;</p>
