@@ -34,7 +34,7 @@
       </nav>
     </header>
 
-    <div id="popup-overlay" class="popup-overlay" style="display: flex;">
+    <div id="popup-overlay" class="popup-overlay" style="display: flex;" tabindex="-1" aria-hidden="true">
         <div class="popup-box">
             <p>
                 <strong>As-salamu alaykum.</strong>
@@ -43,7 +43,7 @@
                 While efforts are made to ensure accuracy, this tool does not serve as a substitute for professional financial or scholarly advice. Users are encouraged to consult qualified experts for verification.
                 <strong>Jazakum Allahu khayran.</strong>
             </p>
-            <button id="close-popup-button">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</button>
+            <button id="close-popup-button" aria-label="Close popup">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</button>
         </div>
     </div>
 
@@ -94,7 +94,7 @@
 
     <div class="app-container">
 
-        <form id="screener-form">
+        <form id="screener-form" role="form" aria-labelledby="form-title">
 
             <div class="label-container">
                 <label for="mv">Market Value :</label>
@@ -191,15 +191,15 @@
             <button type="submit">Submit</button>
         </form>
 
-        <div id="results-container" class="results-container" style="display: none;">
-            <h2>Financial Screening Results</h2>
+        <div id="results-container" class="results-container" style="display: none;" aria-live="polite">
+            <h2 id="form-title">Financial Screening Results</h2>
             <div id="ar-result" class="result-box"></div>
             <div id="debt-result" class="result-box"></div>
             <div id="liquid-result" class="result-box"></div>
             <div id="haram-result" class="result-box"></div>
         </div>
 
-        <div id="error-message" class="error-message" style="display: none;"></div>
+        <div id="error-message" class="error-message" style="display: none;" aria-live="assertive"></div>
 
     </div>
 
@@ -222,10 +222,10 @@
     <h5 style="text-align:center;color:#9a9a9a;font-weight:400;margin-top:0;">Updated in real time from our partner data feeds</h5>
 
     <div role="tablist" style="display:flex;gap:8px;justify-content:center;margin:14px 0 0;">
-        <span style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;background:#0b3d2e;color:#fff;font-size:13px;cursor:pointer;">1D</span>
-        <span style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1W</span>
-        <span style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1M</span>
-        <span style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1Y</span>
+        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;background:#0b3d2e;color:#fff;font-size:13px;cursor:pointer;">1D</span>
+        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1W</span>
+        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1M</span>
+        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1Y</span>
     </div>
 
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:22px 0;">
@@ -269,11 +269,11 @@
     </div>
 
     <div style="text-align:center;margin:24px 0 0;">
-        <div role="checkbox" tabindex="0"
+        <div role="checkbox" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" aria-label="Add SPUS to watchlist"
              style="display:inline-block;padding:8px 16px;margin:0 6px;border:1px solid #d9d9d9;border-radius:6px;color:#333;font-size:13px;cursor:pointer;">
             ☆ Add SPUS to watchlist
         </div>
-        <div role="combobox" tabindex="0"
+        <div role="combobox" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" aria-label="Set a price alert"
              style="display:inline-block;padding:8px 16px;margin:0 6px;border:1px solid #d9d9d9;border-radius:6px;color:#333;font-size:13px;cursor:pointer;">
             Set a price alert ▾
         </div>
