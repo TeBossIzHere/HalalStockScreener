@@ -34,7 +34,7 @@
       </nav>
     </header>
 
-    <div id="popup-overlay" class="popup-overlay" style="display: flex;" tabindex="-1" aria-hidden="true" role="dialog" aria-labelledby="popup-title">
+    <div id="popup-overlay" class="popup-overlay" style="display: flex;" tabindex="-1" aria-hidden="true" role="dialog" aria-labelledby="popup-title" aria-modal="true">
         <div class="popup-box">
             <h2 id="popup-title">
                 <strong>As-salamu alaykum.</strong>
@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <div class="title-container"><h1>Halal Financial Metrics Calculator</h1></div>
+    <div class="title-container"><h1 id="ticker-search-label">Halal Financial Metrics Calculator</h1></div>
 
     <div>
   <div class="container2">
@@ -64,7 +64,7 @@
       <br>Islam prohibits excessive reliance on debt, especially when it involves interest payments. This ratio ensures a company isn't heavily financed by interest-based borrowing.</p>
       AAOIFI, MSCI, and FTSE all use a version of this ratio in their compliance screenings.</p>
 
-    <br><br><h3>2. Cash + Interest-Bearing Investments to Market Value</h3><br>
+    <br><br><h2>2. Cash + Interest-Bearing Investments to Market Value</h2><br>
     <br><div class="highlight2">
       <strong>Formula:</strong> (Cash + Interest-Bearing Investments) ÷ Market Value<br><br>
       <strong>Threshold:</strong> Must be <strong>less than 33%</strong>
@@ -75,18 +75,18 @@
       <p>AAOIFI and Islamic indexes globally apply this rule to reduce exposure to riba-based income.</p>
 
     <br><br><h3>3. Accounts Receivable to Market Value</h3><br>
-    <br><div class="highlight2">
-      <strong>Formula:</strong> Accounts Receivable ÷ Market Value<br><br>
-      <strong>Threshold:</strong> Must be <strong>less than 49%</strong>
-    </div>
+    <br><table class="highlight2">
+      <tr><th scope="col">Formula</th><td>Accounts Receivable ÷ Market Value</td></tr>
+      <tr><th scope="col">Threshold</th><td>Must be <strong>less than 49%</strong></td></tr>
+    </table>
     <p>This ensures that a company isn’t too dependent on credit sales (i.e., delayed payments). Islam encourages timely exchange of value and discourages high reliance on deferred debts.</p>
       <p>Applied by standards in MSCI, Dow Jones, FTSE, and AAOIFI.</p>
 
     <br><br><h3>4. Non-Compliant (Haram) Revenue to Total Revenue</h3><br>
-    <br><div class="highlight2">
-      <strong>Formula:</strong> Haram Revenue ÷ Total Revenue<br><br>
-      <strong>Threshold:</strong> Must be <strong>less than 5%</strong>
-    </div>
+    <br><table class="highlight2">
+      <tr><th scope="col">Formula</th><td>Haram Revenue ÷ Total Revenue</td></tr>
+      <tr><th scope="col">Threshold</th><td>Must be <strong>less than 5%</strong></td></tr>
+    </table>
     <p>This screen catches companies that earn money from impermissible sources like alcohol, gambling, pork, or conventional banking. A small, incidental amount may be tolerated, but anything beyond 5% of revenue is unacceptable.</p>
       <p>This revenue-based screen is consistently used across <strong>AAOIFI</strong>, <strong>S&amp;P</strong>, and all major compliant indexes.</p>
   </div>
@@ -191,7 +191,7 @@
             <button type="submit">Submit</button>
         </form>
 
-        <div id="results-container" class="results-container" style="display: none;" aria-live="polite" aria-atomic="true">
+        <div id="results-container" class="results-container" style="display: none;" aria-live="polite" aria-atomic="true" role="status">
             <h2 id="form-title">Financial Screening Results</h2>
             <div id="ar-result" class="result-box"></div>
             <div id="debt-result" class="result-box"></div>
@@ -199,7 +199,7 @@
             <div id="haram-result" class="result-box"></div>
         </div>
 
-        <div id="error-message" class="error-message" style="display: none;" aria-live="assertive" aria-atomic="true"></div>
+        <div id="error-message" class="error-message" style="display: none;" aria-live="assertive" aria-atomic="true" role="alert"></div>
 
     </div>
 
@@ -230,7 +230,7 @@
 
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:22px 0;">
         <label for="ticker-search">Ticker Search:</label>
-<input type="text" id="ticker-search" tabindex="3" aria-describedby="ticker-search-help" placeholder="Search a ticker (e.g. SPUS)" aria-label="Ticker Search"
+<input type="text" id="ticker-search" tabindex="3" aria-describedby="ticker-search-help" placeholder="Search a ticker (e.g. SPUS)" aria-label="Ticker Search" aria-labelledby="ticker-search-label"
                style="padding:9px 12px;border:1px solid #ccc;border-radius:6px;min-width:220px;font-size:14px;">
         <select id="snapshot-sort" aria-label="Snapshot Sort" style="padding:9px 12px;border:1px solid #ccc;border-radius:6px;font-size:14px;">
             <option>Sort by: Symbol</option>
@@ -238,13 +238,13 @@
             <option>Sort by: Change %</option>
         </select>
         <button type="button" id="snapshot-refresh"
-                style="padding:9px 11px;border:1px solid #ccc;border-radius:6px;background:#0b3d2e;cursor:pointer;">
+                style="padding:9px 11px;border:1px solid #ccc;border-radius:6px;background:#0b3d2e;cursor:pointer;outline:2px solid #fff;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2">
                 <path d="M21 12a9 9 0 1 1-2.64-6.36"></path>
                 <polyline points="21 3 21 9 15 9"></polyline>
             </svg>
         </button>
-        <input type="image" src="https://cdn-icons-png.flaticon.com/512/54/54481.png" width="36" height="36" alt="Search Icon" role="button" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();"
+        <input type="image" src="https://cdn-icons-png.flaticon.com/512/54/54481.png" width="36" height="36" alt="Search Icon" role="button" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click();" aria-label="Search Icon"
                style="border:1px solid #ccc;border-radius:6px;padding:5px;cursor:pointer;">
     </div>
 
@@ -270,11 +270,11 @@
     </div>
 
     <div style="text-align:center;margin:24px 0 0;">
-        <div role="checkbox" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" aria-label="Add SPUS to watchlist"
+        <div role="checkbox" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click();" aria-label="Add SPUS to watchlist" aria-checked="false"
              style="display:inline-block;padding:8px 16px;margin:0 6px;border:1px solid #d9d9d9;border-radius:6px;color:#333;font-size:13px;cursor:pointer;">
             ☆ Add SPUS to watchlist
         </div>
-        <div role="combobox" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" aria-label="Set a price alert"
+        <div role="combobox" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click();" aria-label="Set a price alert" aria-expanded="false"
              style="display:inline-block;padding:8px 16px;margin:0 6px;border:1px solid #d9d9d9;border-radius:6px;color:#333;font-size:13px;cursor:pointer;">
             Set a price alert ▾
         </div>
