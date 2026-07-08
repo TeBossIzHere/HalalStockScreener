@@ -36,12 +36,12 @@
 
 
     {% if show_popup %}
-        <div id="popup-overlay" class="popup-overlay" style="display: flex;">
+        <div id="popup-overlay" class="popup-overlay" style="display: flex;" role="dialog" aria-labelledby="popup-title">
     {% else %}
-        <div id="popup-overlay" class="popup-overlay" style="display: none;">
+        <div id="popup-overlay" class="popup-overlay" style="display: none;" role="dialog" aria-labelledby="popup-title">
     {% endif %}
         <div class="popup-box">
-            <p>
+            <p id="popup-title">
                 <strong>As-salamu alaykum.</strong>
 
                 </p>
