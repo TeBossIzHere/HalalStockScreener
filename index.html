@@ -7,6 +7,59 @@
     <title>Financial Benchmarks</title>
     <link rel="stylesheet" href="static/styles.css">
     <script defer src="static/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var popupOverlay = document.getElementById('popup-overlay');
+            var closePopupButton = document.getElementById('close-popup-button');
+
+            function trapFocus(element) {
+                var focusableEls = element.querySelectorAll('a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select');
+                var firstFocusableEl = focusableEls[0];  
+                var lastFocusableEl = focusableEls[focusableEls.length - 1];
+
+                element.addEventListener('keydown', function(e) {
+                    var isTabPressed = (e.key === 'Tab' || e.keyCode === 9);
+
+                    if (!isTabPressed) {
+                        return;
+                    }
+
+                    if (e.shiftKey) { 
+                        if (document.activeElement === firstFocusableEl) {
+                            lastFocusableEl.focus();
+                            e.preventDefault();
+                        }
+                    } else { 
+                        if (document.activeElement === lastFocusableEl) {
+                            firstFocusableEl.focus();
+                            e.preventDefault();
+                        }
+                    }
+                });
+            }
+
+            var lastFocusedElement;
+
+            function openPopup() {
+                lastFocusedElement = document.activeElement;
+                popupOverlay.style.display = 'flex';
+                closePopupButton.focus();
+                trapFocus(popupOverlay);
+            }
+
+            function closePopup() {
+                popupOverlay.style.display = 'none';
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                }
+            }
+
+            closePopupButton.addEventListener('click', closePopup);
+
+            // Example of opening the popup
+            openPopup();
+        });
+    </script>
 </head>
 
 <body>
@@ -20,10 +73,10 @@
           <li><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
           <li class="dropdown">
-            <a href="#" class="active">Services</a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Financial Screening</a></li>
-              <li><a href="#">Consultation</a></li>
+            <a href="#" class="active" role="button" aria-haspopup="true" aria-expanded="false" tabindex="0" onclick="toggleDropdown(event)" onkeydown="if(event.key === 'Enter' || event.key === ' ') toggleDropdown(event)" aria-controls="services-menu">Services</a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="menuitem"><a href="#" tabindex="-1">Financial Screening</a></li>
+              <li role="menuitem"><a href="#" tabindex="-1">Consultation</a></li>
             </ul>
           </li>
           <li><a href="#">Fundraising</a></li>
@@ -34,7 +87,7 @@
       </nav>
     </header>
 
-    <div id="popup-overlay" class="popup-overlay" style="display: flex;">
+    <div id="popup-overlay" class="popup-overlay" style="display: flex;" aria-live="assertive">
         <div class="popup-box">
             <p>
                 <strong>As-salamu alaykum.</strong>
@@ -49,55 +102,55 @@
 
     <div class="title-container"><h1>Halal Financial Metrics Calculator</h1></div>
 
-    <body2>
+    <div>
   <div class="container2">
-    <h12>🧾 Halal Compliance Screening</h12>
-    <br><br><p2>This financial screening tool uses standards widely accepted by leading boards such as <strong>AAOIFI</strong> (Accounting and Auditing Organization for Islamic Financial Institutions), <strong>MSCI Islamic Index</strong>, <strong>FTSE Shariah</strong>, and platforms like <strong>Islamicly</strong> and <strong>Zoya</strong>. It helps identify whether a company’s financial structure aligns with Islamic ethical investing principles.</p2>
+    <h2>🧾 Halal Compliance Screening</h2>
+    <br><br><p>This financial screening tool uses standards widely accepted by leading boards such as <strong>AAOIFI</strong> (Accounting and Auditing Organization for Islamic Financial Institutions), <strong>MSCI Islamic Index</strong>, <strong>FTSE Shariah</strong>, and platforms like <strong>Islamicly</strong> and <strong>Zoya</strong>. It helps identify whether a company’s financial structure aligns with Islamic ethical investing principles.</p>
 
-    <p2>Compliance is based on <strong>four main financial screening ratios</strong>. These ensure that a company does not rely heavily on interest (riba), excessive debt, or delay in collecting money owed. Below is a simple explanation of each:</p2>
+    <p>Compliance is based on <strong>four main financial screening ratios</strong>. These ensure that a company does not rely heavily on interest (riba), excessive debt, or delay in collecting money owed. Below is a simple explanation of each:</p>
 
-    <br><br><h22>1. Interest-Bearing Debt to Market Value</h22><br>
+    <br><br><h3>1. Interest-Bearing Debt to Market Value</h3><br>
     <br><div class="highlight2">
       <strong>Formula:</strong> Interest-Bearing Debt ÷ Market Value<br><br>
       <strong>Threshold:</strong> Must be <strong>less than 33%</strong>
     </div>
-      <br>Islam prohibits excessive reliance on debt, especially when it involves interest payments. This ratio ensures a company isn't heavily financed by interest-based borrowing.</p2>
-      AAOIFI, MSCI, and FTSE all use a version of this ratio in their compliance screenings.</p2>
+      <br>Islam prohibits excessive reliance on debt, especially when it involves interest payments. This ratio ensures a company isn't heavily financed by interest-based borrowing.</p>
+      AAOIFI, MSCI, and FTSE all use a version of this ratio in their compliance screenings.</p>
 
-    <br><br><h22>2. Cash + Interest-Bearing Investments to Market Value</h22><br>
+    <br><br><h3>2. Cash + Interest-Bearing Investments to Market Value</h3><br>
     <br><div class="highlight2">
       <strong>Formula:</strong> (Cash + Interest-Bearing Investments) ÷ Market Value<br><br>
       <strong>Threshold:</strong> Must be <strong>less than 33%</strong>
     </div>
-    <br>This captures liquid assets that may generate interest income. It's important that a company doesn't simply store its wealth in interest-earning deposits or bonds.<br>
-      <br><em>Note: This includes long-term interest-bearing investments (over 3 months) because they are not usually reported as cash.</em></p2>
+    <br>This captures liquid assets that may generate interest income. It's important that a company doesn't simply store its wealth in interest-earning deposits or bonds.<br></p>
+      <br><em>Note: This includes long-term interest-bearing investments (over 3 months) because they are not usually reported as cash.</em></p>
 
-      <br>AAOIFI and Islamic indexes globally apply this rule to reduce exposure to riba-based income.</p2>
+      <br>AAOIFI and Islamic indexes globally apply this rule to reduce exposure to riba-based income.</p>
 
-    <br><br><h22>3. Accounts Receivable to Market Value</h22><br>
+    <br><br><h3>3. Accounts Receivable to Market Value</h3><br>
     <br><div class="highlight2">
       <strong>Formula:</strong> Accounts Receivable ÷ Market Value<br><br>
       <strong>Threshold:</strong> Must be <strong>less than 49%</strong>
     </div>
-    <br>This ensures that a company isn’t too dependent on credit sales (i.e., delayed payments). Islam encourages timely exchange of value and discourages high reliance on deferred debts.</p2>
-      Applied by standards in MSCI, Dow Jones, FTSE, and AAOIFI.</p2>
+    <br>This ensures that a company isn’t too dependent on credit sales (i.e., delayed payments). Islam encourages timely exchange of value and discourages high reliance on deferred debts.</p>
+      Applied by standards in MSCI, Dow Jones, FTSE, and AAOIFI.</p>
 
-    <br><br><h22>4. Non-Compliant (Haram) Revenue to Total Revenue</h22><br>
+    <br><br><h3>4. Non-Compliant (Haram) Revenue to Total Revenue</h3><br>
     <br><div class="highlight2">
       <strong>Formula:</strong> Haram Revenue ÷ Total Revenue<br><br>
       <strong>Threshold:</strong> Must be <strong>less than 5%</strong>
     </div>
-    <br>This screen catches companies that earn money from impermissible sources like alcohol, gambling, pork, or conventional banking. A small, incidental amount may be tolerated, but anything beyond 5% of revenue is unacceptable.</p2>
-      This revenue-based screen is consistently used across <strong>AAOIFI</strong>, <strong>S&amp;P</strong>, and all major compliant indexes.</p2>
+    <br>This screen catches companies that earn money from impermissible sources like alcohol, gambling, pork, or conventional banking. A small, incidental amount may be tolerated, but anything beyond 5% of revenue is unacceptable.</p>
+      This revenue-based screen is consistently used across <strong>AAOIFI</strong>, <strong>S&amp;P</strong>, and all major compliant indexes.</p>
   </div>
-</body2>
+</div>
 
     <div class="app-container">
 
         <form id="screener-form">
 
             <div class="label-container">
-                <label for="mv">Market Value :</label>
+                <label for="mv">Market Value:</label>
                 <button type="button" class="expand-button" data-target="mv-info">What is Market Value?</button>
             </div>
             <input type="text" id="mv" name="mv" placeholder="Enter MV" required>
@@ -112,7 +165,7 @@
 
             <div class="label-container">
                 <label for="tr">Total Revenue :</label>
-                <button type="button" class="expand-button" data-target="tr-info">What is Total Revenue?</button>
+                <button type="button" class="expand-button" data-target="tr-info">What is Total Revenue? (Located below the Total Revenue input field)</button>
             </div>
             <input type="text" id="tr" name="tr" placeholder="Enter TR" required>
             <div id="tr-info" class="expand-section">
@@ -125,7 +178,7 @@
 
             <div class="label-container">
                 <label for="ar">Accounts Receivable :</label>
-                <button type="button" class="expand-button" data-target="ar-info">What is Accounts Receivable?</button>
+                <button type="button" class="expand-button" data-target="ar-info">What is Accounts Receivable? (Located below the Accounts Receivable input field)</button>
             </div>
             <input type="text" id="ar" name="ar" placeholder="Enter AR" required>
             <div id="ar-info" class="expand-section">
@@ -138,8 +191,9 @@
 
             <div class="label-container">
                 <label for="debt">Debt:</label>
-                <button type="button" class="expand-button" data-target="debt-info">What is Debt?</button>
+                <button type="button" class="expand-button" data-target="debt-info">What is Debt? (Located below the Debt input field)</button>
             </div>
+            <label for="debt">Debt:</label>
             <input type="text" id="debt" name="debt" placeholder="Enter Debt" required>
             <div id="debt-info" class="expand-section">
                 <p><strong>Debt</strong> refers to the total amount of money a company owes to external creditors. This metric includes loans, bonds, or other financial obligations the company has. Understanding a company&rsquo;s debt load is crucial for evaluating its financial stability and risk. High levels of debt can indicate financial strain, but debt can also be used strategically for growth if managed well. Investors use this metric to assess how risky an investment in the company might be. From a <strong>Shariah compliance perspective</strong>, monitoring debt is especially critical. According to standards set by prominent Shariah boards such as the <strong>Accounting and Auditing Organization for Islamic Financial Institutions (AAOIFI)</strong> and the <strong>Shariah Supervisory Board (SSB) of MSCI and Dow Jones Islamic Market Indices</strong>, companies must maintain debt levels below a specific threshold&mdash;typically no more than <strong>33% of total assets or market capitalization</strong>. This limit ensures the business does not overly rely on interest-based borrowing, which is prohibited in Islamic finance.</p>
@@ -166,6 +220,7 @@
                 <label for="ibs">Interest-Bearing Invested Capital :</label>
                 <button type="button" class="expand-button" data-target="ibs-info">What is Interest-Bearing Capital?</button>
             </div>
+            <label for="ibs" class="visually-hidden">Interest-Bearing Invested Capital</label>
             <input type="text" id="ibs" name="ibs" placeholder="Enter IBS" required>
             <div id="ibs-info" class="expand-section">
                 <p><strong>Interest-bearing investment capital</strong> refers to the amount of money that a company has invested in financial instruments that generate interest, such as bonds or certificates of deposit. This is distinct from cash because it represents funds actively placed in interest-bearing vehicles rather than liquid assets available for immediate use. In Shariah-compliant financial screening&mdash;such as the standards set by <strong>AAOIFI (Accounting and Auditing Organization for Islamic Financial Institutions)</strong> and followed by global Shariah indices like <strong>Dow Jones Islamic Market Index (DJIM)</strong>&mdash;this category is highly scrutinized. These standards typically require that the full value of such investments (not just the interest income) be accounted for when evaluating a company&rsquo;s compliance.</p>
@@ -177,8 +232,9 @@
 
             <div class="label-container">
                 <label for="hr">Haram Revenue :</label>
-                <button type="button" class="expand-button" data-target="hr-info">What is Haram Revenue?</button>
+                <button type="button" class="expand-button" data-target="hr-info">What is Haram Revenue? (Located below the Haram Revenue input field)</button>
             </div>
+            <label for="hr">Haram Revenue :</label>
             <input type="text" id="hr" name="hr" placeholder="Enter HR" required>
             <div id="hr-info" class="expand-section">
                 <p><strong>Haram Revenue</strong> refers to any income generated by activities or products that are prohibited under Islamic law. This could include, but is not limited to, revenue from gambling, alcohol, or interest-based financing (riba). Shariah-compliant financial institutions, such as the <strong>Accounting and Auditing Organization for Islamic Financial Institutions (AAOIFI)</strong> and <strong>the Islamic Financial Services Board (IFSB)</strong>, emphasize the importance of identifying and excluding these revenues to maintain compliance with Islamic principles.</p>
@@ -191,15 +247,15 @@
             <button type="submit">Submit</button>
         </form>
 
-        <div id="results-container" class="results-container" style="display: none;">
+        <div id="results-container" class="results-container" style="display: none;" aria-live="polite">
             <h2>Financial Screening Results</h2>
-            <div id="ar-result" class="result-box"></div>
-            <div id="debt-result" class="result-box"></div>
-            <div id="liquid-result" class="result-box"></div>
-            <div id="haram-result" class="result-box"></div>
+            <div id="ar-result" class="result-box">Accounts Receivable Result: <span class="status-text">Pending</span></div>
+            <div id="debt-result" class="result-box">Debt Result: <span class="status-text">Pending</span></div>
+            <div id="liquid-result" class="result-box">Liquidity Result: <span class="status-text">Pending</span></div>
+            <div id="haram-result" class="result-box">Haram Revenue Result: <span class="status-text">Pending</span></div>
         </div>
 
-        <div id="error-message" class="error-message" style="display: none;"></div>
+        <div id="error-message" class="error-message" style="display: none;" aria-live="assertive" role="alert"></div>
 
     </div>
 
