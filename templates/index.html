@@ -257,6 +257,7 @@
 
             if (popupOverlay && {{ show_popup | tojson }}) {
                 popupOverlay.style.display = "flex";
+                closePopupButton.focus();
             }
 
             closePopupButton?.addEventListener("click", function () {
