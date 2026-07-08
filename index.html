@@ -21,7 +21,7 @@
           <li><a href="#">About Us</a></li>
           <li class="dropdown">
             <a href="#" class="active">Services</a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" role="menu">
               <li><a href="#">Financial Screening</a></li>
               <li><a href="#">Consultation</a></li>
             </ul>
@@ -34,11 +34,11 @@
       </nav>
     </header>
 
-    <div id="popup-overlay" class="popup-overlay" style="display: flex;" tabindex="-1" aria-hidden="true">
+    <div id="popup-overlay" class="popup-overlay" style="display: flex;" tabindex="-1" aria-hidden="true" role="dialog" aria-labelledby="popup-title">
         <div class="popup-box">
-            <p>
+            <h2 id="popup-title">
                 <strong>As-salamu alaykum.</strong>
-            </p>
+            </h2>
             <p class="subtle">
                 While efforts are made to ensure accuracy, this tool does not serve as a substitute for professional financial or scholarly advice. Users are encouraged to consult qualified experts for verification.
                 <strong>Jazakum Allahu khayran.</strong>
@@ -56,7 +56,7 @@
 
     <p>Compliance is based on <strong>four main financial screening ratios</strong>. These ensure that a company does not rely heavily on interest (riba), excessive debt, or delay in collecting money owed. Below is a simple explanation of each:</p>
 
-    <br><br><h3>1. Interest-Bearing Debt to Market Value</h3><br>
+    <br><br><h2>1. Interest-Bearing Debt to Market Value</h2><br>
     <br><div class="highlight2">
       <strong>Formula:</strong> Interest-Bearing Debt ÷ Market Value<br><br>
       <strong>Threshold:</strong> Must be <strong>less than 33%</strong>
@@ -94,7 +94,7 @@
 
     <div class="app-container">
 
-        <form id="screener-form" role="form" aria-labelledby="form-title">
+        <form id="screener-form" role="form" aria-labelledby="form-title" aria-describedby="form-description">
 
             <div class="label-container">
                 <label for="mv">Market Value :</label>
@@ -191,7 +191,7 @@
             <button type="submit">Submit</button>
         </form>
 
-        <div id="results-container" class="results-container" style="display: none;" aria-live="polite">
+        <div id="results-container" class="results-container" style="display: none;" aria-live="polite" aria-atomic="true">
             <h2 id="form-title">Financial Screening Results</h2>
             <div id="ar-result" class="result-box"></div>
             <div id="debt-result" class="result-box"></div>
@@ -199,7 +199,7 @@
             <div id="haram-result" class="result-box"></div>
         </div>
 
-        <div id="error-message" class="error-message" style="display: none;" aria-live="assertive"></div>
+        <div id="error-message" class="error-message" style="display: none;" aria-live="assertive" aria-atomic="true"></div>
 
     </div>
 
@@ -222,14 +222,15 @@
     <h5 style="text-align:center;color:#9a9a9a;font-weight:400;margin-top:0;">Updated in real time from our partner data feeds</h5>
 
     <div role="tablist" style="display:flex;gap:8px;justify-content:center;margin:14px 0 0;">
-        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;background:#0b3d2e;color:#fff;font-size:13px;cursor:pointer;">1D</span>
-        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1W</span>
-        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1M</span>
-        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;">1Y</span>
+        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;background:#0b3d2e;color:#fff;font-size:13px;cursor:pointer;" aria-label="1 Day">1D</span>
+        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;" aria-label="1 Week">1W</span>
+        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;" aria-label="1 Month">1M</span>
+        <span role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();" style="padding:6px 16px;border:1px solid #d9d9d9;border-radius:20px;color:#666;font-size:13px;cursor:pointer;" aria-label="1 Year">1Y</span>
     </div>
 
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:22px 0;">
-        <input type="text" id="ticker-search" tabindex="3" aria-describedby="ticker-search-help" placeholder="Search a ticker (e.g. SPUS)" aria-label="Ticker Search"
+        <label for="ticker-search">Ticker Search:</label>
+<input type="text" id="ticker-search" tabindex="3" aria-describedby="ticker-search-help" placeholder="Search a ticker (e.g. SPUS)" aria-label="Ticker Search"
                style="padding:9px 12px;border:1px solid #ccc;border-radius:6px;min-width:220px;font-size:14px;">
         <select id="snapshot-sort" aria-label="Snapshot Sort" style="padding:9px 12px;border:1px solid #ccc;border-radius:6px;font-size:14px;">
             <option>Sort by: Symbol</option>
@@ -243,7 +244,7 @@
                 <polyline points="21 3 21 9 15 9"></polyline>
             </svg>
         </button>
-        <input type="image" src="https://cdn-icons-png.flaticon.com/512/54/54481.png" width="36" height="36" alt="Search Icon"
+        <input type="image" src="https://cdn-icons-png.flaticon.com/512/54/54481.png" width="36" height="36" alt="Search Icon" role="button" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click();"
                style="border:1px solid #ccc;border-radius:6px;padding:5px;cursor:pointer;">
     </div>
 
